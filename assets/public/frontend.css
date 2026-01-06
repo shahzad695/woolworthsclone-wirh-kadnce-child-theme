@@ -1,0 +1,736 @@
+/*!************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./assets/src/css/all.scss ***!
+  \************************************************************************************************************************************************************/
+/* layout related utility classes */
+.flow-content > * {
+  margin-bottom: var(--flow-space, var(--space-large));
+}
+
+.flow-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, var(--space-small));
+}
+
+.flex > * {
+  flex-basis: 100%;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, var(--space-small));
+}
+
+/*typography related utility classes */
+.text-center {
+  text-align: center;
+}
+
+/* style relared utility classes */
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+
+[class*=bg-] {
+  color: var(--fg, --color-white);
+  background-color: var(--bg, --color-grey-dark);
+}
+
+.bg-dark {
+  --fg: var(--color-white);
+  --bg: var(--color-grey-dark);
+  --accent: var(--color-accent);
+}
+
+.bg-light {
+  --fg: var(--color-grey-dark);
+  --bg: var(--color-white);
+  --accent: var(--color-accent);
+}
+
+.bg-primary {
+  --fg: var(--color-primary);
+  --bg: var(--color-primary);
+  --accent: var(--color-white);
+}
+
+.bg-accent {
+  --fg: var(--color-accent);
+  --bg: var(--color-accent);
+  --accent: var(--color-white);
+}
+
+/* responsive utility classes */
+@media (min-width: var(--breakpoint)) {
+  .flex {
+    flex-direction: row;
+  }
+  section {
+    padding: calc(var(--spacer) * 2) 0;
+  }
+}
+body {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-body-desktop);
+  line-height: var(--line-height-body-desktop);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-h);
+}
+
+section {
+  padding: calc(2 * var(--space-large)) 0;
+}
+
+.container {
+  padding: 0 var(--space-large);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  margin-bottom: var(--space-large);
+  color: var(--accent, var(--color-accent));
+  background-color: var(--fg, var(--color-white));
+}
+
+.btn {
+  display: inline-block;
+  padding: var(--space-medium) var(--space-large);
+  font-size: var(--font-size-body-desktop);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--fg, var(--color-white));
+  background-color: var(--accent, var(--color-accent));
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+button,
+optgroup,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-heading);
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+image {
+  max-width: 100%;
+  display: inline-block;
+  height: auto;
+}
+
+:root {
+  /* Colors */
+  --color-primary: #126c34;
+  --color-primary-dark: #0d5127;
+  --color-primary-light: #178841;
+  --color-accent: #ffda00;
+  --color-text: #3a474e;
+  --color-white: #fff;
+  --color-grey-lighter: #9da3a7;
+  --color-grey-light: #616c71;
+  --color-grey-dark: #283136;
+  --color-grey-darker: #171c1f;
+  /* typography*/
+  --font-size-heading-lg: 2.75rem;
+  --font-size-heading-md: 2.375rem;
+  --font-size-heading-sm: 1.75rem;
+  --font-size-heading-sm-mobile: 1.375rem;
+  --font-size-body-desktop: 1rem;
+  --font-size-body-mobile: 0.875rem;
+  --line-height-heading-md: 1.053;
+  --line-height-heading: 1;
+  --line-height-body-desktop: 1.5;
+  --font-rem: 16px;
+  --font-family-heading: "Fresh Sans", sans-serif;
+  --font-family-accent: "Fresh Script";
+  --font-family-body: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  /* mediaquery */
+}
+@media (min-width: var(--breakpoint)) {
+  :root {
+    --font-size-heading-lg: 2.75rem;
+    --font-size-heading-md: 2.375rem;
+    --font-size-heading-sm: 1.75rem;
+    --font-size-body-desktop: 1rem;
+  }
+}
+:root {
+  --breakpoint-xxs: 20rem;
+  --breakpoint-xs: 25.875rem;
+  --breakpoint-sm: 48rem;
+  --breakpoint-md: 64rem;
+  --breakpoint-lg: 80rem;
+  --breakpoint-xl: 90rem;
+  --breakpoint-xxl: 105rem;
+  /*spacing*/
+  --space-vsmall: 0.25rem;
+  --space-small: 0.5rem;
+  --space-medium: 0.75rem;
+  --space-large: 1rem;
+  --grid-columns-compact: 6;
+  --grid-columns-regular: 12;
+  --grid-gutter-compact: 1.5rem;
+  --grid-gutter-regular: 2rem;
+  --grid-margin-compact: 1.25rem;
+  --grid-margin-regular: 2rem;
+  --grid-margin-expanded: 2.5rem;
+  --grid-fixed-width-xxs: 100%;
+  --grid-fixed-width-xs: 100%;
+  --grid-fixed-width-sm: 100%;
+  --grid-fixed-width-md: 100%;
+  --grid-fixed-width-lg: 73rem;
+  --grid-fixed-width-xl: 82rem;
+  --grid-fixed-width-xxl: 91rem;
+  /* miscelaneous */
+  --max-width: 73rem;
+  --border-radius: 0.5rem;
+  --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  /*
+  --color-breadcrumbs-scroll-background-default: #fff;
+  --color-breadcrumbs-scroll-background-on-contrast: #0c482c;
+  --color-interface-background-primary: #fff;
+  --color-interface-background-secondary: #f5f6f6;
+  --color-interface-background-tertiary: #ebeded;
+  --color-interface-background-highlight-strong: #0c482c;
+  --color-interface-background-highlight-medium: #178841;
+  --color-interface-background-highlight-weak: #caeb6d;
+  --color-interface-background-inverse-primary: #171c1f;
+  --color-interface-background-inverse-secondary: #283136;
+  --color-interface-background-inverse-tertiary: #3a474e;
+  --color-interface-text-strong: #171c1f;
+  --color-interface-text-medium: #616c71;
+  --color-interface-text-highlight: #178841;
+  --color-interface-text-on-contrast-strong: #fff;
+  --color-interface-text-on-contrast-medium: #babfc1;
+  --color-interface-icon-strong: #171c1f;
+  --color-interface-icon-medium: #616c71;
+  --color-interface-icon-highlight: #178841;
+  --color-interface-icon-on-contrast-strong: #fff;
+  --color-interface-icon-on-contrast-medium: #babfc1;
+  --color-interface-border-strong: #3a474e;
+  --color-interface-border-medium: #9da3a7;
+  --color-interface-border-default: #babfc1;
+  --color-interface-border-weak: #e1e3e4;
+  --color-interface-border-highlight-strong: #0d5127;
+  --color-interface-border-highlight-medium: #178841;
+  --color-interface-border-highlight-weak: #74b88d;
+  --color-interface-border-on-contrast: #fff;
+  --color-action-background-primary-default: #178841;
+  --color-action-background-primary-focus: #126c34;
+  --color-action-background-primary-active: #0d5127;
+  --color-action-background-primary-disabled: #ced1d3;
+  --color-action-background-secondary-default: #fff;
+  --color-action-background-secondary-focus: #f5f6f6;
+  --color-action-background-secondary-active: #fff;
+  --color-action-background-secondary-disabled: #fff;
+  --color-action-background-tertiary-default: #f5f6f6;
+  --color-action-background-tertiary-focus: #e1e3e4;
+  --color-action-background-tertiary-active: #babfc1;
+  --color-action-background-tertiary-disabled: #f5f6f6;
+  --color-action-background-destructive-default: #f5f6f6;
+  --color-action-background-destructive-focus: #ebeded;
+  --color-action-background-destructive-active: #e1e3e4;
+  --color-action-background-destructive-disabled: #f5f6f6;
+  --color-action-text-primary-default: #fff;
+  --color-action-text-primary-focus: #fff;
+  --color-action-text-primary-active: #fff;
+  --color-action-text-primary-disabled: #fff;
+  --color-action-text-secondary-default: #3a474e;
+  --color-action-text-secondary-focus: #616c71;
+  --color-action-text-secondary-active: #171c1f;
+  --color-action-text-secondary-disabled: #babfc1;
+  --color-action-text-tertiary-default: #3a474e;
+  --color-action-text-tertiary-focus: #3a474e;
+  --color-action-text-tertiary-active: #171c1f;
+  --color-action-text-tertiary-disabled: #babfc1;
+  --color-action-text-destructive-default: #ca0000;
+  --color-action-text-destructive-focus: #bd161c;
+  --color-action-text-destructive-active: #bd161c;
+  --color-action-text-destructive-disabled: #babfc1;
+  --color-action-text-link-default: #126c34;
+  --color-action-text-link-focus: #0d5127;
+  --color-action-text-link-active: #171c1f;
+  --color-action-text-link-disabled: #babfc1;
+  --color-action-text-link-on-contrast-default: #fff;
+  --color-action-text-link-on-contrast-focus: #f5f6f6;
+  --color-action-text-link-on-contrast-active: #f5f6f6;
+  --color-action-text-link-on-contrast-disabled: #babfc1;
+  --color-action-icon-primary-default: #fff;
+  --color-action-icon-primary-focus: #fff;
+  --color-action-icon-primary-active: #fff;
+  --color-action-icon-primary-disabled: #fff;
+  --color-action-icon-secondary-default: #3a474e;
+  --color-action-icon-secondary-focus: #616c71;
+  --color-action-icon-secondary-active: #171c1f;
+  --color-action-icon-secondary-disabled: #babfc1;
+  --color-action-icon-tertiary-default: #3a474e;
+  --color-action-icon-tertiary-focus: #3a474e;
+  --color-action-icon-tertiary-active: #171c1f;
+  --color-action-icon-tertiary-disabled: #babfc1;
+  --color-action-icon-destructive-default: #ca0000;
+  --color-action-icon-destructive-focus: #bd161c;
+  --color-action-icon-destructive-active: #bd161c;
+  --color-action-icon-destructive-disabled: #babfc1;
+  --color-action-border-primary-default: #178841;
+  --color-action-border-primary-focus: #126c34;
+  --color-action-border-primary-active: #0d5127;
+  --color-action-border-primary-disabled: #ced1d3;
+  --color-action-border-secondary-default: #3a474e;
+  --color-action-border-secondary-focus: #616c71;
+  --color-action-border-secondary-active: #171c1f;
+  --color-action-border-secondary-disabled: #babfc1;
+  --color-action-border-tertiary-default: #f5f6f6;
+  --color-action-border-tertiary-focus: #e1e3e4;
+  --color-action-border-tertiary-active: #babfc1;
+  --color-action-border-tertiary-disabled: #f5f6f6;
+  --color-action-border-destructive-default: #f5f6f6;
+  --color-action-border-destructive-focus: #ebeded;
+  --color-action-border-destructive-active: #e1e3e4;
+  --color-action-border-destructive-disabled: #f5f6f6;
+  --color-input-background-default: #fff;
+  --color-input-background-disabled: #ced1d3;
+  --color-input-background-active-default: #178841;
+  --color-input-background-active-focus: #126c34;
+  --color-input-background-inactive-default: #babfc1;
+  --color-input-background-inactive-focus: #9da3a7;
+  --color-input-background-error-default: #fde8e9;
+  --color-input-background-error-focus: #fabbbd;
+  --color-input-text-default: #3a474e;
+  --color-input-text-disabled: #9da3a7;
+  --color-input-text-label: #3a474e;
+  --color-input-text-placeholder-default: #616c71;
+  --color-input-text-placeholder-disabled: #9da3a7;
+  --color-input-text-supporting-help: #616c71;
+  --color-input-text-supporting-error: #bd161c;
+  --color-input-icon-primary: #3a474e;
+  --color-input-icon-secondary: #e1e3e4;
+  --color-input-icon-disabled: #9da3a7;
+  --color-input-border-default: #616c71;
+  --color-input-border-focus: #171c1f;
+  --color-input-border-active: #178841;
+  --color-input-border-inactive: #e1e3e4;
+  --color-input-border-filled: #616c71;
+  --color-input-border-disabled: #ced1d3;
+  --color-input-border-error-default: #bd161c;
+  --color-input-border-error-focus: #e10000;
+  --color-control-background-primary-unselected-default: #fff;
+  --color-control-background-primary-unselected-focus: #f5f6f6;
+  --color-control-background-primary-unselected-active: #fff;
+  --color-control-background-primary-unselected-disabled: #fff;
+  --color-control-background-primary-selected-default: #e8f3ec;
+  --color-control-background-primary-selected-focus: #f5f6f6;
+  --color-control-background-primary-selected-active: #fff;
+  --color-control-background-primary-selected-disabled: #fff;
+  --color-control-background-secondary-unselected-default: #f5f6f6;
+  --color-control-background-secondary-unselected-focus: #e1e3e4;
+  --color-control-background-secondary-unselected-active: #babfc1;
+  --color-control-background-secondary-unselected-disabled: #f5f6f6;
+  --color-control-background-secondary-selected-default: #178841;
+  --color-control-background-secondary-selected-focus: #126c34;
+  --color-control-background-secondary-selected-active: #0d5127;
+  --color-control-background-secondary-selected-disabled: #ced1d3;
+  --color-control-text-primary-unselected-default: #3a474e;
+  --color-control-text-primary-unselected-focus: #616c71;
+  --color-control-text-primary-unselected-active: #171c1f;
+  --color-control-text-primary-unselected-disabled: #babfc1;
+  --color-control-text-primary-selected-default: #3a474e;
+  --color-control-text-primary-selected-focus: #616c71;
+  --color-control-text-primary-selected-active: #171c1f;
+  --color-control-text-primary-selected-disabled: #babfc1;
+  --color-control-text-secondary-unselected-default: #3a474e;
+  --color-control-text-secondary-unselected-focus: #3a474e;
+  --color-control-text-secondary-unselected-active: #171c1f;
+  --color-control-text-secondary-unselected-disabled: #babfc1;
+  --color-control-text-secondary-selected-default: #fff;
+  --color-control-text-secondary-selected-focus: #fff;
+  --color-control-text-secondary-selected-active: #fff;
+  --color-control-text-secondary-selected-disabled: #fff;
+  --color-control-icon-primary-unselected-default: #3a474e;
+  --color-control-icon-primary-unselected-focus: #616c71;
+  --color-control-icon-primary-unselected-active: #171c1f;
+  --color-control-icon-primary-unselected-disabled: #babfc1;
+  --color-control-icon-primary-selected-default: #178841;
+  --color-control-icon-primary-selected-focus: #126c34;
+  --color-control-icon-primary-selected-active: #0d5127;
+  --color-control-icon-primary-selected-disabled: #ced1d3;
+  --color-control-icon-secondary-unselected-default: #3a474e;
+  --color-control-icon-secondary-unselected-focus: #3a474e;
+  --color-control-icon-secondary-unselected-active: #171c1f;
+  --color-control-icon-secondary-unselected-disabled: #babfc1;
+  --color-control-icon-secondary-selected-default: #fff;
+  --color-control-icon-secondary-selected-focus: #fff;
+  --color-control-icon-secondary-selected-active: #fff;
+  --color-control-icon-secondary-selected-disabled: #fff;
+  --color-control-border-primary-unselected-default: #3a474e;
+  --color-control-border-primary-unselected-focus: #616c71;
+  --color-control-border-primary-unselected-active: #171c1f;
+  --color-control-border-primary-unselected-disabled: #babfc1;
+  --color-control-border-primary-selected-default: #178841;
+  --color-control-border-primary-selected-focus: #126c34;
+  --color-control-border-primary-selected-active: #0d5127;
+  --color-control-border-primary-selected-disabled: #ced1d3;
+  --color-control-border-secondary-unselected-default: #f5f6f6;
+  --color-control-border-secondary-unselected-focus: #e1e3e4;
+  --color-control-border-secondary-unselected-active: #babfc1;
+  --color-control-border-secondary-unselected-disabled: #f5f6f6;
+  --color-control-border-secondary-selected-default: #178841;
+  --color-control-border-secondary-selected-focus: #126c34;
+  --color-control-border-secondary-selected-active: #0d5127;
+  --color-control-border-secondary-selected-disabled: #ced1d3;
+  --color-status-background-negative: #fde8e9;
+  --color-status-background-tentative: #fffbe5;
+  --color-status-background-positive: #e8f3ec;
+  --color-status-background-neutral: #ebeded;
+  --color-status-text-negative: #bd161c;
+  --color-status-text-tentative: #7a640c;
+  --color-status-text-positive: #0d5127;
+  --color-status-text-neutral: #616c71;
+  --color-alert-background-info: #edf5fa;
+  --color-alert-background-success: #f4fbe2;
+  --color-alert-background-warning: #fffbe5;
+  --color-alert-background-error: #fde8e9;
+  --color-alert-text-info: #171c1f;
+  --color-alert-text-success: #171c1f;
+  --color-alert-text-warning: #171c1f;
+  --color-alert-text-error: #171c1f;
+  --color-alert-icon-info: #0074bc;
+  --color-alert-icon-success: #126c34;
+  --color-alert-icon-warning: #7a640c;
+  --color-alert-icon-error: #bd161c;
+  --color-alert-link-info-default: #0074bc;
+  --color-alert-link-info-focus: #3a474e;
+  --color-alert-link-info-active: #283136;
+  --color-alert-link-success-default: #126c34;
+  --color-alert-link-success-focus: #3a474e;
+  --color-alert-link-success-active: #283136;
+  --color-alert-link-warning-default: #7a640c;
+  --color-alert-link-warning-focus: #3a474e;
+  --color-alert-link-warning-active: #283136;
+  --color-alert-link-error-default: #bd161c;
+  --color-alert-link-error-focus: #3a474e;
+  --color-alert-link-error-active: #283136;
+  --color-extended-dark-green-10: #9eb6ab;
+  --color-extended-dark-green-20: #6d9180;
+  --color-extended-dark-green-30: #3d6d56;
+  --color-extended-dark-green-40: #0c482c;
+  --color-extended-dark-green-50: #0a3a23;
+  --color-extended-dark-green-60: #072b1a;
+  --color-extended-mid-green-10: #e8f3ec;
+  --color-extended-mid-green-20: #74b88d;
+  --color-extended-mid-green-30: #45a067;
+  --color-extended-mid-green-40: #178841;
+  --color-extended-mid-green-50: #126c34;
+  --color-extended-mid-green-60: #0d5127;
+  --color-extended-zing-10: #f4fbe2;
+  --color-extended-zing-20: #eaf7c5;
+  --color-extended-zing-30: #daf199;
+  --color-extended-zing-40: #caeb6d;
+  --color-extended-charcoal-10: #f5f6f6;
+  --color-extended-charcoal-20: #ebeded;
+  --color-extended-charcoal-30: #e1e3e4;
+  --color-extended-charcoal-40: #ced1d3;
+  --color-extended-charcoal-50: #babfc1;
+  --color-extended-charcoal-60: #9da3a7;
+  --color-extended-charcoal-70: #616c71;
+  --color-extended-charcoal-80: #3a474e;
+  --color-extended-charcoal-90: #283136;
+  --color-extended-charcoal-100: #171c1f;
+  --color-extended-yellow-10: #fffbe5;
+  --color-extended-yellow-20: #fff8cc;
+  --color-extended-yellow-30: #ffe966;
+  --color-extended-yellow-40: #ffda00;
+  --color-extended-yellow-50: #e5c300;
+  --color-extended-yellow-60: #7a640c;
+  --color-extended-red-10: #fde8e9;
+  --color-extended-red-20: #fabbbd;
+  --color-extended-red-30: #f4777c;
+  --color-extended-red-40: #e10000;
+  --color-extended-red-50: #ca0000;
+  --color-extended-red-60: #bd161c;
+  --color-extended-blue-10: #edf5fa;
+  --color-extended-blue-20: #66acd7;
+  --color-extended-blue-30: #0074bc;
+  --color-brand-primary-dark-green: #0c482c;
+  --color-brand-primary-mid-green: #178841;
+  --color-brand-primary-zing: #caeb6d;
+  --color-brand-primary-charcoal: #3a474e;
+  --color-brand-primary-white: #fff;
+  --color-brand-pricing-new: #e6007e;
+  --color-brand-pricing-sale: #e10000;
+  --color-brand-pricing-special: #ffda00;
+  --font-family-body: $font-family-roboto;
+  --font-family-headline: $font-family-fresh-sans;
+  --font-family-helvetica: Helvetica, Sans-Serif;
+  --button-size-regular: 2rem;
+  --space-internal-sm: 0.25rem;
+
+
+
+  // --space-content-lg: 1.5rem;
+  // --space-section-sm: 2rem;
+  // --space-section-md: 2.5rem;
+  // --space-section-lg: 3rem;
+  // --space-area-sm: 4rem;
+  // --space-area-md: 5rem;
+  // --space-area-lg: 7.5rem;
+
+  // --font-display-lg-default-size: 3.5rem;
+  // --font-display-sm-default-size: 2.75rem;
+  // --font-display-lg-default-line-height: 1.071;
+  // --font-display-sm-default-line-height: 1.091;
+
+  // --font-headline-lg-default-size: 2rem;
+  // --font-headline-lg-default-desktop-size: 2.375rem;
+  // --font-headline-lg-light-size: 2rem;
+  // --font-headline-lg-light-desktop-size: 2.375rem;
+  // --font-headline-lg-light-desktop-line-height: 1.053;
+  // --font-headline-lg-default-desktop-line-height: 1.053;
+   // --font-headline-lg-default-line-height: 1.125;
+   // --font-headline-lg-light-line-height: 1.125;
+  // --font-headline-md-default-family: "Fresh Sans", sans-serif;
+  // --font-headline-md-default-weight: 500;
+  // --font-headline-md-default-size: 1.5rem;
+  // --font-headline-md-default-line-height: 1.167;
+  // --font-headline-md-default-desktop-family: "Fresh Sans", sans-serif;
+  // --font-headline-md-default-desktop-weight: 500;
+  // --font-headline-md-default-desktop-size: 1.75rem;
+  // --font-headline-md-default-desktop-line-height: 1.143;
+  // --font-headline-md-light-family: "Fresh Sans", sans-serif;
+  // --font-headline-md-light-weight: 400;
+  // --font-headline-md-light-size: 1.5rem;
+  // --font-headline-md-light-line-height: 1.167;
+  // --font-headline-md-light-desktop-family: "Fresh Sans", sans-serif;
+  // --font-headline-md-light-desktop-weight: 400;
+  // --font-headline-md-light-desktop-size: 1.75rem;
+  // --font-headline-md-light-desktop-line-height: 1.143;
+  // --font-headline-sm-default-family: "Fresh Sans", sans-serif;
+  // --font-headline-sm-default-weight: 500;
+  // --font-headline-sm-default-size: 1.375rem;
+  // --font-headline-sm-default-line-height: 1.182;
+  // --font-headline-sm-default-desktop-family: "Fresh Sans", sans-serif;
+  // --font-headline-sm-default-desktop-weight: 500;
+  // --font-headline-sm-default-desktop-size: 1.5rem;
+  // --font-headline-sm-default-desktop-line-height: 1.167;
+  // --font-headline-sm-light-family: "Fresh Sans", sans-serif;
+  // --font-headline-sm-light-weight: 400;
+  // --font-headline-sm-light-size: 1.375rem;
+  // --font-headline-sm-light-line-height: 1.182;
+  // --font-headline-sm-light-desktop-family: "Fresh Sans", sans-serif;
+  // --font-headline-sm-light-desktop-weight: 400;
+  // --font-headline-sm-light-desktop-size: 1.5rem;
+  // --font-headline-sm-light-desktop-line-height: 1.167;
+  // --font-title-lg-default-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-title-lg-default-weight: 700;
+  // --font-title-lg-default-size: 1.25rem;
+  // --font-title-lg-default-line-height: 1.2;
+  // --font-title-lg-accent-family: "Fresh Sans", sans-serif;
+  // --font-title-lg-accent-weight: 500;
+  // --font-title-lg-accent-size: 1.25rem;
+  // --font-title-lg-accent-line-height: 1.2;
+  // --font-title-md-default-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-title-md-default-weight: 700;
+  // --font-title-md-default-size: 1rem;
+  // --font-title-md-default-line-height: 1.25;
+  // --font-title-md-accent-family: "Fresh Sans", sans-serif;
+  // --font-title-md-accent-weight: 500;
+  // --font-title-md-accent-size: 1rem;
+  // --font-title-md-accent-line-height: 1.25;
+  // --font-title-sm-default-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-title-sm-default-weight: 700;
+  // --font-title-sm-default-size: 0.875rem;
+  // --font-title-sm-default-line-height: 1.286;
+  // --font-title-sm-accent-family: "Fresh Sans", sans-serif;
+  // --font-title-sm-accent-weight: 500;
+  // --font-title-sm-accent-size: 0.875rem;
+  // --font-title-sm-accent-line-height: 1.286;
+  // --font-body-lg-default-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-lg-default-weight: 400;
+  // --font-body-lg-default-size: 1.125rem;
+  // --font-body-lg-default-line-height: 1.556;
+  // --font-body-lg-medium-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-lg-medium-weight: 500;
+  // --font-body-lg-medium-size: 1.125rem;
+  // --font-body-lg-medium-line-height: 1.556;
+  // --font-body-lg-strong-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-lg-strong-weight: 700;
+  // --font-body-lg-strong-size: 1.125rem;
+  // --font-body-lg-strong-line-height: 1.556;
+  // --font-body-lg-emphasis-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-lg-emphasis-weight: 400;
+  // --font-body-lg-emphasis-size: 1.125rem;
+  // --font-body-lg-emphasis-line-height: 1.556;
+  // --font-body-lg-emphasis-style: italic;
+  // --font-body-md-default-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-md-default-weight: 400;
+  // --font-body-md-default-size: 1rem;
+  // --font-body-md-default-line-height: 1.5;
+  // --font-body-md-medium-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-md-medium-weight: 500;
+  // --font-body-md-medium-size: 1rem;
+  // --font-body-md-medium-line-height: 1.5;
+  // --font-body-md-strong-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-md-strong-weight: 700;
+  // --font-body-md-strong-size: 1rem;
+  // --font-body-md-strong-line-height: 1.5;
+  // --font-body-md-emphasis-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-md-emphasis-weight: 400;
+  // --font-body-md-emphasis-size: 1rem;
+  // --font-body-md-emphasis-line-height: 1.5;
+  // --font-body-md-emphasis-style: italic;
+  // --font-body-sm-default-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-sm-default-weight: 400;
+  // --font-body-sm-default-size: 0.875rem;
+  // --font-body-sm-default-line-height: 1.429;
+  // --font-body-sm-medium-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-sm-medium-weight: 500;
+  // --font-body-sm-medium-size: 0.875rem;
+  // --font-body-sm-medium-line-height: 1.429;
+  // --font-body-sm-strong-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-sm-strong-weight: 700;
+  // --font-body-sm-strong-size: 0.875rem;
+  // --font-body-sm-strong-line-height: 1.429;
+  // --font-body-sm-emphasis-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-body-sm-emphasis-weight: 400;
+  // --font-body-sm-emphasis-size: 0.875rem;
+  // --font-body-sm-emphasis-line-height: 1.429;
+  // --font-body-sm-emphasis-style: italic;
+  // --font-caption-sm-default-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-caption-sm-default-weight: 700;
+  // --font-caption-sm-default-size: 0.75rem;
+  // --font-caption-sm-default-line-height: 1.333;
+  // --font-caption-sm-light-family: Roboto, -apple-system, BlinkMacSystemFont,
+  //   "Segoe UI", sans-serif;
+  // --font-caption-sm-light-weight: 400;
+  // --font-caption-sm-light-size: 0.75rem;
+  // --font-caption-sm-light-line-height: 1.333;*/
+}
+
+.wolheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wolheader__dropdown {
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.wolheader__right {
+  display: flex;
+  align-items: center;
+  margin: 0 2rem;
+  font-size: 1rem;
+  color: #171c1f;
+}
+.wolheader__right_icon {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #ebeded;
+}
+.wolheader__right_cart {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #ebeded;
+}
+.wolheader__right_text--light {
+  font-size: 0.8rem;
+  color: #616c71;
+}
+.wolheader__right_text--bold {
+  font-weight: 501;
+}
+.wolheader .fa-light,
+.wolheader .fas {
+  font-weight: 900;
+  color: #101111;
+}
+
+/*# sourceMappingURL=frontend.css.map*/
