@@ -1,0 +1,66 @@
+/* layout related utility classes */
+.flow-content > * {
+  margin-bottom: var(--flow-space, var(--space-large));
+}
+.flow-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, var(--space-small));
+}
+.flex > * {
+  flex-basis: 100%;
+}
+.grid {
+  display: grid;
+  gap: var(--gap, var(--space-small));
+}
+/*typography related utility classes */
+
+.text-center {
+  text-align: center;
+}
+
+/* style relared utility classes */
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+
+[class*="bg-"] {
+  color: var(--fg, --color-white);
+  background-color: var(--bg, --color-grey-dark);
+}
+
+.bg-dark {
+  --fg: var(--color-white);
+  --bg: var(--color-grey-dark);
+  --accent: var(--color-accent);
+}
+.bg-light {
+  --fg: var(--color-grey-dark);
+  --bg: var(--color-white);
+  --accent: var(--color-accent);
+}
+.bg-primary {
+  --fg: var(--color-primary);
+  --bg: var(--color-primary);
+  --accent: var(--color-white);
+}
+.bg-accent {
+  --fg: var(--color-accent);
+  --bg: var(--color-accent);
+  --accent: var(--color-white);
+}
+
+/* responsive utility classes */
+@media (min-width: var(--breakpoint-sm)) {
+  .flex {
+    flex-direction: row;
+  }
+  section {
+    padding: calc(var(--spacer) * 2) 0;
+  }
+}

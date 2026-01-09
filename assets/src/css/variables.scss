@@ -1,172 +1,3 @@
-/*!************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./assets/src/css/all.scss ***!
-  \************************************************************************************************************************************************************/
-@charset "UTF-8";
-/* layout related utility classes */
-.flow-content > * {
-  margin-bottom: var(--flow-space, var(--space-large));
-}
-
-.flow-content > *:last-child {
-  margin-bottom: 0;
-}
-
-.flex {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap, var(--space-small));
-}
-
-.flex > * {
-  flex-basis: 100%;
-}
-
-.grid {
-  display: grid;
-  gap: var(--gap, var(--space-small));
-}
-
-/*typography related utility classes */
-.text-center {
-  text-align: center;
-}
-
-/* style relared utility classes */
-.shadow {
-  box-shadow: var(--box-shadow);
-}
-
-[class*=bg-] {
-  color: var(--fg, --color-white);
-  background-color: var(--bg, --color-grey-dark);
-}
-
-.bg-dark {
-  --fg: var(--color-white);
-  --bg: var(--color-grey-dark);
-  --accent: var(--color-accent);
-}
-
-.bg-light {
-  --fg: var(--color-grey-dark);
-  --bg: var(--color-white);
-  --accent: var(--color-accent);
-}
-
-.bg-primary {
-  --fg: var(--color-primary);
-  --bg: var(--color-primary);
-  --accent: var(--color-white);
-}
-
-.bg-accent {
-  --fg: var(--color-accent);
-  --bg: var(--color-accent);
-  --accent: var(--color-white);
-}
-
-/* responsive utility classes */
-@media (min-width: var(--breakpoint-sm)) {
-  .flex {
-    flex-direction: row;
-  }
-  section {
-    padding: calc(var(--spacer) * 2) 0;
-  }
-}
-body {
-  font-family: var(--font-family-body);
-  font-weight: var(--font-body--weight);
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-body);
-  color: var(--color-text);
-}
-
-a {
-  color: var(--color-text);
-  text-decoration: none;
-  font-weight: var(--font-body--weight);
-}
-
-h1,
-h2,
-h3,
-.h1,
-.h2,
-.h3 {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-headline-md);
-  font-weight: var(--font-headline--weight);
-  line-height: var(--font-headline-line-height);
-}
-
-section {
-  padding: calc(2 * var(--space-large)) 0;
-}
-
-.container {
-  padding: 0 var(--space-large);
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-.section-title {
-  font-size: var(--font-headline-lg);
-  font-weight: var(--font-headline--weight);
-  text-align: center;
-  margin-bottom: var(--space-large);
-  color: var(--accent, var(--color-accent));
-  background-color: var(--fg, var(--color-white));
-}
-
-.button {
-  display: inline-block;
-  padding: var(--space-medium) var(--space-large);
-  font-size: var(--font-headline-sm);
-  font-weight: var(--font-headline--weight);
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: var(--border-radius);
-  color: var(--fg, var(--color-white));
-  background-color: var(--accent, var(--color-primary));
-}
-
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-button,
-optgroup,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-body,
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-}
-
-ul[class],
-ol[class] {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-image {
-  max-width: 100%;
-  display: inline-block;
-  height: auto;
-}
-
 :root {
   /* Colors */
   --color-primary: #126c34;
@@ -179,6 +10,7 @@ image {
   --color-grey-light: #616c71;
   --color-grey-dark: #283136;
   --color-grey-darker: #171c1f;
+
   /* typography*/
   --font-family-heading: "Fresh Sans", sans-serif;
   --font-family-accent: "Fresh Script";
@@ -193,9 +25,8 @@ image {
   --font-size-body: 0.875rem;
   --line-height-body: 1.56;
   --font-body--weight: 400;
-}
-@media (min-width: var(--breakpoint-md)) {
-  :root {
+
+  @media (min-width: var(--breakpoint-md)) {
     --font-headline-lg: 2.375rem;
     --font-headline-lg-line-height: 1.053;
     --font-headline-md: 1.75rem;
@@ -203,12 +34,12 @@ image {
     --font-size-body: 1rem;
     --line-height-body: 1.5;
   }
-}
-:root {
+
   --font-weight-bold: 700;
   --font-weight-semibold: 600;
   --font-weight-medium: 500;
   --font-weight-regular: 400;
+
   --breakpoint-sm: 26.5625rem;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
@@ -217,6 +48,7 @@ image {
   --space-small: 0.5rem;
   --space-medium: 0.75rem;
   --space-large: 1rem;
+
   --grid-columns-compact: 6;
   --grid-columns-regular: 12;
   --grid-gutter-compact: 1.5rem;
@@ -236,6 +68,7 @@ image {
   --border-radius: 0.5rem;
   --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   --box-shadow-product-card: 0 0 0 1px #e8e8e8 inset;
+
   /*
   --color-breadcrumbs-scroll-background-default: #fff;
   --color-breadcrumbs-scroll-background-on-contrast: #0c482c;
@@ -516,7 +349,7 @@ image {
   --space-internal-sm: 0.25rem;
 
 
-
+  
   // --space-content-lg: 1.5rem;
   // --space-section-sm: 2rem;
   // --space-section-md: 2.5rem;
@@ -529,12 +362,12 @@ image {
   // --font-display-sm-default-size: 2.75rem;
   // --font-display-lg-default-line-height: 1.071;
   // --font-display-sm-default-line-height: 1.091;
-
+  
   // --font-headline-lg-default-size: 2rem;
    // --font-headline-lg-default-line-height: 1.125;
   // --font-headline-lg-default-desktop-size: 2.375rem;
    // --font-headline-lg-default-desktop-line-height: 1.053;
-
+  
   // --font-headline-lg-light-size: 2rem;
   // --font-headline-lg-light-desktop-size: 2.375rem;
   // --font-headline-lg-light-desktop-line-height: 1.053;
@@ -681,114 +514,3 @@ image {
   // --font-caption-sm-light-size: 0.75rem;
   // --font-caption-sm-light-line-height: 1.333;*/
 }
-
-.wolheader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.wolheader__dropdown {
-  border: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-.wolheader__right {
-  display: flex;
-  align-items: center;
-  margin: 0 2rem;
-  font-size: 1rem;
-  color: #171c1f;
-}
-.wolheader__right_icon {
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-  border-radius: 0.5rem;
-  background-color: #ebeded;
-}
-.wolheader__right_cart {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  padding: 0.8rem 1rem;
-  margin-right: 0.5rem;
-  border-radius: 0.5rem;
-  background-color: #ebeded;
-}
-.wolheader__right_text--light {
-  font-size: 0.8rem;
-  color: #616c71;
-}
-.wolheader__right_text--bold {
-  font-weight: 501;
-}
-.wolheader .fa-light,
-.wolheader .fas {
-  font-weight: 900;
-  color: #101111;
-}
-
-/* WooCommerce Product Grid – mobile first */
-.woocommerce ul.products {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-@media (min-width: 26.5625rem) {
-  .woocommerce ul.products {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 48rem) {
-  .woocommerce ul.products {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (min-width: 64rem) {
-  .woocommerce ul.products {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-.woocommerce ul.products li.product {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  background: var(--color-white);
-  border-radius: 0.5rem;
-  box-shadow: var(--box-shadow-product-card);
-}
-.woocommerce ul.products li.product .entry-content-wrap {
-  margin: 0;
-}
-
-.woocommerce-loop-product__title {
-  order: 2;
-}
-
-.woocommerce ul.products.woo-archive-action-on-hover li.product .product-action-wrap {
-  position: static;
-  width: 100%;
-  padding: 0;
-  opacity: 1;
-  border: 1px solid red;
-}
-
-.woocommerce ul.products:not(.woo-archive-btn-button) li:where(:not(.woo-archive-btn-button)) .button:not(.kb-button) {
-  position: static;
-  display: inline-block;
-  width: 100%;
-  padding: var(--space-medium) var(--space-large);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-headline--weight);
-  text-align: center;
-  text-decoration: none;
-  border: 1px solid red;
-  border-radius: var(--border-radius);
-  color: var(--fg, var(--color-white));
-  background-color: var(--accent, var(--color-primary));
-}
-
-/*# sourceMappingURL=frontend.css.map*/

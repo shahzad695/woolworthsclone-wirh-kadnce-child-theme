@@ -40,7 +40,6 @@ package-lock.json
 yarn.lock
 
 # Webpack & Build Artifacts
-src/
 build/
 *.bundle.js
 *.js.map

@@ -1,0 +1,55 @@
+body {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-body--weight);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: var(--font-body--weight);
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-headline-md);
+  font-weight: var(--font-headline--weight);
+  line-height: var(--font-headline-line-height);
+}
+section {
+  padding: calc(2 * var(--space-large)) 0;
+}
+
+.container {
+  padding: 0 var(--space-large);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.section-title {
+  font-size: var(--font-headline-lg);
+  font-weight: var(--font-headline--weight);
+  text-align: center;
+  margin-bottom: var(--space-large);
+  color: var(--accent, var(--color-accent));
+  background-color: var(--fg, var(--color-white));
+}
+
+.button {
+  display: inline-block;
+  padding: var(--space-medium) var(--space-large);
+  font-size: var(--font-headline-sm);
+  font-weight: var(--font-headline--weight);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--fg, var(--color-white));
+  background-color: var(--accent, var(--color-primary));
+}

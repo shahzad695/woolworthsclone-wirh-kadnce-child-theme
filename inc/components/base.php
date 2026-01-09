@@ -3,20 +3,12 @@
  * Kadence Child Theme functions
  */
 
-add_action( 'wp_enqueue_scripts', function() {
-
-    // Parent theme stylesheet (optional but safe)
-    wp_enqueue_style(
-        'kadence-parent',
-        get_template_directory_uri() . '/style.css'
-    );
+ function kadence_child_theme_styles_enqueue() {
 
     // Child theme stylesheet
     wp_enqueue_style(
-        'kadence-child',
-        get_stylesheet_directory_uri() . '/style.css',
-        [ 'kadence-parent' ],
-        wp_get_theme()->get('Version')
+        'kadence-child', get_stylesheet_directory_uri() . '/assets/public/frontend.css',[ ],wp_get_theme()->get('Version')
     );
 
-}, 20 );
+}
+add_action( 'wp_enqueue_scripts', 'kadence_child_theme_styles_enqueue', 30 );
