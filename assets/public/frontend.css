@@ -161,7 +161,7 @@ ol[class] {
   margin: 0;
 }
 
-image {
+img {
   max-width: 100%;
   display: inline-block;
   height: auto;
@@ -192,7 +192,7 @@ image {
   --font-headline--weight: 500;
   --font-size-body: 0.875rem;
   --line-height-body: 1.56;
-  --font-body--weight: 400;
+  --font-body-weight: 400;
 }
 @media (min-width: var(--breakpoint-md)) {
   :root {
@@ -755,25 +755,47 @@ image {
 .woocommerce ul.products li.product {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   padding: 1rem;
   background: var(--color-white);
   border-radius: 0.5rem;
   box-shadow: var(--box-shadow-product-card);
+  height: 100%;
 }
 .woocommerce ul.products li.product .entry-content-wrap {
-  margin: 0;
+  margin: 0 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
 }
-
-.woocommerce-loop-product__title {
+.woocommerce ul.products li.product .entry-content-wrap .price {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-headline-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-grey-darker);
+  order: 1;
+  margin: 0 0 0 0;
+}
+.woocommerce ul.products li.product .entry-content-wrap .woocommerce-loop-product__title {
+  font-family: var(--font-family-body);
+  font-size: var(--font-headline-sm);
+  font-weight: var(--font-body-weight);
+  color: var(--color-grey-darker);
+  line-height: var(--line-height-body);
+  padding: 2rem 0;
   order: 2;
+}
+.woocommerce ul.products li.product .entry-content-wrap .product-action-wrap {
+  order: 3;
+  margin-top: auto;
 }
 
 .woocommerce ul.products.woo-archive-action-on-hover li.product .product-action-wrap {
   position: static;
-  width: 100%;
   padding: 0;
   opacity: 1;
-  border: 1px solid red;
 }
 
 .woocommerce ul.products:not(.woo-archive-btn-button) li:where(:not(.woo-archive-btn-button)) .button:not(.kb-button) {
@@ -785,10 +807,16 @@ image {
   font-weight: var(--font-headline--weight);
   text-align: center;
   text-decoration: none;
-  border: 1px solid red;
   border-radius: var(--border-radius);
   color: var(--fg, var(--color-white));
   background-color: var(--accent, var(--color-primary));
+  text-transform: capitalize;
+}
+
+li.product:hover .product-details,
+li.product .product-details {
+  transform: none !important;
+  transition: none;
 }
 
 /*# sourceMappingURL=frontend.css.map*/
