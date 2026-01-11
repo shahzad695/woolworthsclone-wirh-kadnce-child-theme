@@ -4,7 +4,11 @@
  */
 require_once get_stylesheet_directory() . '/inc/components/base.php';
 /**
-* Customizer additions.
+ * woocommerce Customizations
+ */
+require_once get_stylesheet_directory() . '/inc/components/wooCustomization.php';
+/**
+ * Customizer additions.
  */
 // require get_template_directory() . '/inc/components/customizer.php';
 // /**

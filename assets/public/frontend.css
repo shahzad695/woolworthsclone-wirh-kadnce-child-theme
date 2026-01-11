@@ -796,6 +796,17 @@ img {
   position: static;
   padding: 0;
   opacity: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-medium);
+}
+.woocommerce ul.products.woo-archive-action-on-hover li.product .product-action-wrap .product-save-button {
+  background-color: var(--color-white);
+  color: var(--color-grey-darker);
+  border: 1px solid var(--color-grey-light);
+}
+.woocommerce ul.products.woo-archive-action-on-hover li.product .product-action-wrap .kadence-svg-icon {
+  display: none;
 }
 
 .woocommerce ul.products:not(.woo-archive-btn-button) li:where(:not(.woo-archive-btn-button)) .button:not(.kb-button) {
@@ -810,7 +821,7 @@ img {
   border-radius: var(--border-radius);
   color: var(--fg, var(--color-white));
   background-color: var(--accent, var(--color-primary));
-  text-transform: capitalize;
+  text-transform: initial;
 }
 
 li.product:hover .product-details,
