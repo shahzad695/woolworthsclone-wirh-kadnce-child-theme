@@ -83,8 +83,12 @@
   gap: var(--space-medium);
   & .product-save-button {
     background-color: var(--color-white);
-    color: var(--color-grey-darker);
+    color: var(--color-text);
     border: 1px solid var(--color-grey-light);
+  }
+  & .is-saved {
+    background-color: var(--color-grey-lighter);
+    color: var(--color-white);
   }
   & .kadence-svg-icon {
     display: none;

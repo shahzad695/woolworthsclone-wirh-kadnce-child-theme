@@ -16,6 +16,7 @@
         'woolworthSave',
         [
             'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+            'nonce'   => wp_create_nonce( 'save_to_list_nonce' ),
         ]
     );
 

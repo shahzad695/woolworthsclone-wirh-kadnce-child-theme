@@ -8,6 +8,10 @@ require_once get_stylesheet_directory() . '/inc/components/base.php';
  */
 require_once get_stylesheet_directory() . '/inc/components/wooCustomization.php';
 /**
+ * AJAX handlers
+ */
+require_once get_stylesheet_directory() . '/inc/components/ajax.php';
+/**
  * Customizer additions.
  */
 // require get_template_directory() . '/inc/components/customizer.php';

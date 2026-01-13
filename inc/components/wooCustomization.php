@@ -11,6 +11,7 @@ function add_save_button_inside_product_actions() {
     if ( ! is_user_logged_in() ) {
         return;
     }
+    error_log( 'DEBUG TEST WORKING' );
 
     $saved = get_user_meta( get_current_user_id(), 'saved_products', true );
     $is_saved = is_array( $saved ) && in_array( $product->get_id(), $saved );
@@ -23,6 +24,6 @@ function add_save_button_inside_product_actions() {
         class="button product_type_simple product-save-button ' . esc_attr( $class ) . '"
         data-product-id="' . esc_attr( $product->get_id() ) . '"
         aria-label="' . esc_html( $text ) . ' to list">
-        Save to list
+        ' . esc_html( $text ) . ' to list
     </a>';
 }

@@ -802,8 +802,12 @@ img {
 }
 .woocommerce ul.products.woo-archive-action-on-hover li.product .product-action-wrap .product-save-button {
   background-color: var(--color-white);
-  color: var(--color-grey-darker);
+  color: var(--color-text);
   border: 1px solid var(--color-grey-light);
+}
+.woocommerce ul.products.woo-archive-action-on-hover li.product .product-action-wrap .is-saved {
+  background-color: var(--color-grey-lighter);
+  color: var(--color-white);
 }
 .woocommerce ul.products.woo-archive-action-on-hover li.product .product-action-wrap .kadence-svg-icon {
   display: none;
