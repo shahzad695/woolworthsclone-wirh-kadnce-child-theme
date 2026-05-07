@@ -6,7 +6,7 @@ require_once get_stylesheet_directory() . '/inc/components/base.php';
 /**
  * woocommerce Customizations
  */
-require_once get_stylesheet_directory() . '/inc/components/wooCustomization.php';
+require_once get_stylesheet_directory() . '/inc/components/woocomerce/productArchivePage.php';
 /**
  * AJAX handlers
  */

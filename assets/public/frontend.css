@@ -37,8 +37,8 @@
 }
 
 [class*=bg-] {
-  color: var(--fg, --color-white);
-  background-color: var(--bg, --color-grey-dark);
+  color: var(--fg, white);
+  background-color: var(--bg, red);
 }
 
 .bg-dark {
@@ -50,6 +50,12 @@
 .bg-light {
   --fg: var(--color-grey-dark);
   --bg: var(--color-white);
+  --accent: var(--color-accent);
+}
+
+.bg-lighter {
+  --fg: var(--color-text);
+  --bg: var(--color-grey-lightest);
   --accent: var(--color-accent);
 }
 
@@ -76,7 +82,7 @@
 }
 body {
   font-family: var(--font-family-body);
-  font-weight: var(--font-body--weight);
+  font-weight: var(--font-body-weight);
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   color: var(--color-text);
@@ -175,6 +181,7 @@ img {
   --color-accent: #ffda00;
   --color-text: #3a474e;
   --color-white: #fff;
+  --color-grey-lightest: #ebf7ff;
   --color-grey-lighter: #9da3a7;
   --color-grey-light: #616c71;
   --color-grey-dark: #283136;
@@ -182,8 +189,8 @@ img {
   /* typography*/
   --font-family-heading: "Fresh Sans", sans-serif;
   --font-family-accent: "Fresh Script";
-  --font-family-body: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  --font-family-body:
+    Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-headline-lg: 2rem;
   --font-headline-lg-line-height: 1.125;
   --font-headline-md: 1.5rem;
@@ -763,11 +770,12 @@ img {
   height: 100%;
 }
 .woocommerce ul.products li.product .entry-content-wrap {
-  margin: 0 0 0 0;
+  margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(1rem, auto) minmax(1rem, auto) minmax(8rem, auto) minmax(4rem, auto);
+  gap: 0.5rem;
   flex-grow: 1;
 }
 .woocommerce ul.products li.product .entry-content-wrap .price {
@@ -775,8 +783,9 @@ img {
   font-size: var(--font-headline-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-grey-darker);
-  order: 1;
-  margin: 0 0 0 0;
+  margin: 0;
+  min-height: 1.5rem;
+  grid-row: 2;
 }
 .woocommerce ul.products li.product .entry-content-wrap .woocommerce-loop-product__title {
   font-family: var(--font-family-body);
@@ -784,12 +793,20 @@ img {
   font-weight: var(--font-body-weight);
   color: var(--color-grey-darker);
   line-height: var(--line-height-body);
-  padding: 2rem 0;
-  order: 2;
+  padding: 1rem 0;
+  min-height: 8rem;
+  grid-row: 3;
+}
+.woocommerce ul.products li.product .entry-content-wrap .product__badge-wrap {
+  grid-row: 1;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
 }
 .woocommerce ul.products li.product .entry-content-wrap .product-action-wrap {
-  order: 3;
-  margin-top: auto;
+  grid-row: 4;
+  margin-top: 0;
+  min-height: 4rem;
 }
 
 .woocommerce ul.products.woo-archive-action-on-hover li.product .product-action-wrap {
@@ -832,6 +849,15 @@ li.product:hover .product-details,
 li.product .product-details {
   transform: none !important;
   transition: none;
+}
+
+.product__badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: var(--space-vsmall) var(--space-small);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: var(--border-radius);
 }
 
 /*# sourceMappingURL=frontend.css.map*/

@@ -30,8 +30,8 @@
 }
 
 [class*="bg-"] {
-  color: var(--fg, --color-white);
-  background-color: var(--bg, --color-grey-dark);
+  color: var(--fg, white);
+  background-color: var(--bg, red);
 }
 
 .bg-dark {
@@ -42,6 +42,11 @@
 .bg-light {
   --fg: var(--color-grey-dark);
   --bg: var(--color-white);
+  --accent: var(--color-accent);
+}
+.bg-lighter {
+  --fg: var(--color-text);
+  --bg: var(--color-grey-lightest);
   --accent: var(--color-accent);
 }
 .bg-primary {
