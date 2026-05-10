@@ -1,5 +1,15 @@
 <?php
 
+
+add_filter('woocommerce_loop_add_to_cart_link', function($html){
+
+    return str_replace(
+        'button',
+        'button woolworths-button btn-primary',
+        $html
+    );
+
+});
 /*
 Product Save to list button cutomization
 */
@@ -24,7 +34,7 @@ function add_save_button_inside_product_actions() {
 
     echo '<a 
         href="#"
-        class="button product_type_simple product-save-button ' . esc_attr( $class ) . '"
+        class="woolworths-button product_type_simple btn-outline ' . esc_attr( $class ) . '"
         data-product-id="' . esc_attr( $product->get_id() ) . '"
         aria-label="' . esc_html( $text ) . ' to list">
         ' . esc_html( $text ) . ' to list

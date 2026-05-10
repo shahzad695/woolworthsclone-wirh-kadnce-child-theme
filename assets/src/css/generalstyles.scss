@@ -4,6 +4,7 @@ body {
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   color: var(--color-text);
+  background-color: var(--color-white);
 }
 
 a {
@@ -41,15 +42,3 @@ section {
   background-color: var(--fg, var(--color-white));
 }
 
-.button {
-  display: inline-block;
-  padding: var(--space-medium) var(--space-large);
-  font-size: var(--font-headline-sm);
-  font-weight: var(--font-headline--weight);
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: var(--border-radius);
-  color: var(--fg, var(--color-white));
-  background-color: var(--accent, var(--color-primary));
-}

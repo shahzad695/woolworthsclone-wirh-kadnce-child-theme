@@ -2,177 +2,6 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./assets/src/css/all.scss ***!
   \************************************************************************************************************************************************************/
 @charset "UTF-8";
-/* layout related utility classes */
-.flow-content > * {
-  margin-bottom: var(--flow-space, var(--space-large));
-}
-
-.flow-content > *:last-child {
-  margin-bottom: 0;
-}
-
-.flex {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap, var(--space-small));
-}
-
-.flex > * {
-  flex-basis: 100%;
-}
-
-.grid {
-  display: grid;
-  gap: var(--gap, var(--space-small));
-}
-
-/*typography related utility classes */
-.text-center {
-  text-align: center;
-}
-
-/* style relared utility classes */
-.shadow {
-  box-shadow: var(--box-shadow);
-}
-
-[class*=bg-] {
-  color: var(--fg, white);
-  background-color: var(--bg, red);
-}
-
-.bg-dark {
-  --fg: var(--color-white);
-  --bg: var(--color-grey-dark);
-  --accent: var(--color-accent);
-}
-
-.bg-light {
-  --fg: var(--color-grey-dark);
-  --bg: var(--color-white);
-  --accent: var(--color-accent);
-}
-
-.bg-lighter {
-  --fg: var(--color-text);
-  --bg: var(--color-grey-lightest);
-  --accent: var(--color-accent);
-}
-
-.bg-primary {
-  --fg: var(--color-primary);
-  --bg: var(--color-primary);
-  --accent: var(--color-white);
-}
-
-.bg-accent {
-  --fg: var(--color-accent);
-  --bg: var(--color-accent);
-  --accent: var(--color-white);
-}
-
-/* responsive utility classes */
-@media (min-width: var(--breakpoint-sm)) {
-  .flex {
-    flex-direction: row;
-  }
-  section {
-    padding: calc(var(--spacer) * 2) 0;
-  }
-}
-body {
-  font-family: var(--font-family-body);
-  font-weight: var(--font-body-weight);
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-body);
-  color: var(--color-text);
-}
-
-a {
-  color: var(--color-text);
-  text-decoration: none;
-  font-weight: var(--font-body--weight);
-}
-
-h1,
-h2,
-h3,
-.h1,
-.h2,
-.h3 {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-headline-md);
-  font-weight: var(--font-headline--weight);
-  line-height: var(--font-headline-line-height);
-}
-
-section {
-  padding: calc(2 * var(--space-large)) 0;
-}
-
-.container {
-  padding: 0 var(--space-large);
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-.section-title {
-  font-size: var(--font-headline-lg);
-  font-weight: var(--font-headline--weight);
-  text-align: center;
-  margin-bottom: var(--space-large);
-  color: var(--accent, var(--color-accent));
-  background-color: var(--fg, var(--color-white));
-}
-
-.button {
-  display: inline-block;
-  padding: var(--space-medium) var(--space-large);
-  font-size: var(--font-headline-sm);
-  font-weight: var(--font-headline--weight);
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: var(--border-radius);
-  color: var(--fg, var(--color-white));
-  background-color: var(--accent, var(--color-primary));
-}
-
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-button,
-optgroup,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-body,
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-}
-
-ul[class],
-ol[class] {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-img {
-  max-width: 100%;
-  display: inline-block;
-  height: auto;
-}
-
 :root {
   /* Colors */
   --color-primary: #126c34;
@@ -689,6 +518,383 @@ img {
   // --font-caption-sm-light-line-height: 1.333;*/
 }
 
+/* Remove Kadence WooCommerce UI influence baseline */
+/* We use the exact verbose selectors to neutralize Kadence/Woo */
+/* We use !important here to win the specificity war, but we point to variables */
+/* so our custom system can still control the actual values. */
+.woocommerce ul.products:not(.woo-archive-btn-button) li:where(:not(.woo-archive-btn-button)) .button:not(.kb-button),
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce-page a.button,
+.woocommerce-page button.button,
+.woocommerce-page input.button,
+.kb-button {
+  background-color: var(--btn-bg) !important;
+  color: var(--btn-color) !important;
+  border-color: var(--btn-border, transparent) !important;
+  padding: var(--btn-padding) !important;
+  font-size: var(--btn-font-size) !important;
+  border-radius: var(--btn-radius) !important;
+  text-transform: var(--btn-transform, none) !important;
+  font-family: var(--btn-font-family, inherit) !important;
+  font-weight: var(--btn-font-weight, inherit) !important;
+  line-height: var(--btn-line-height, inherit) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  width: var(--btn-width, auto) !important;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+button,
+optgroup,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: inline-block;
+  height: auto;
+}
+
+/* layout related utility classes */
+.flow-content > * {
+  margin-bottom: var(--flow-space, var(--space-large));
+}
+
+.flow-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, var(--space-small));
+}
+
+.flex > * {
+  flex-basis: 100%;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, var(--space-small));
+}
+
+/*typography related utility classes */
+.text-center {
+  text-align: center;
+}
+
+/* style relared utility classes */
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+
+[class*=bg-] {
+  color: var(--fg, white);
+  background-color: var(--bg, red);
+}
+
+.bg-dark {
+  --fg: var(--color-white);
+  --bg: var(--color-grey-dark);
+  --accent: var(--color-accent);
+}
+
+.bg-light {
+  --fg: var(--color-grey-dark);
+  --bg: var(--color-white);
+  --accent: var(--color-accent);
+}
+
+.bg-lighter {
+  --fg: var(--color-text);
+  --bg: var(--color-grey-lightest);
+  --accent: var(--color-accent);
+}
+
+.bg-primary {
+  --fg: var(--color-primary);
+  --bg: var(--color-primary);
+  --accent: var(--color-white);
+}
+
+.bg-accent {
+  --fg: var(--color-accent);
+  --bg: var(--color-accent);
+  --accent: var(--color-white);
+}
+
+/* responsive utility classes */
+@media (min-width: var(--breakpoint-sm)) {
+  .flex {
+    flex-direction: row;
+  }
+  section {
+    padding: calc(var(--spacer) * 2) 0;
+  }
+}
+body {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-body-weight);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: var(--font-body--weight);
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-headline-md);
+  font-weight: var(--font-headline--weight);
+  line-height: var(--font-headline-line-height);
+}
+
+section {
+  padding: calc(2 * var(--space-large)) 0;
+}
+
+.container {
+  padding: 0 var(--space-large);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: var(--font-headline-lg);
+  font-weight: var(--font-headline--weight);
+  text-align: center;
+  margin-bottom: var(--space-large);
+  color: var(--accent, var(--color-accent));
+  background-color: var(--fg, var(--color-white));
+}
+
+.woolworths-button, .woocommerce ul.products li.product .button {
+  --btn-padding: var(--space-medium) var(--space-large);
+  --btn-radius: var(--border-radius);
+  --btn-font-size: var(--font-size-body);
+  --btn-font-family: var(--font-family-body);
+  --btn-font-weight: var(--font-headline--weight);
+  --btn-line-height: var(--line-height-body);
+  --btn-transform: none;
+  --btn-width: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.woolworths-button.btn-primary, .woocommerce ul.products li.product .button {
+  --btn-bg: var(--color-primary);
+  --btn-color: var(--color-white);
+  --btn-border: transparent;
+}
+.woolworths-button.btn-primary:hover, .woocommerce ul.products li.product .button:hover, .woolworths-button.btn-primary:focus, .woocommerce ul.products li.product .button:focus {
+  --btn-bg: var(--color-primary-dark);
+  --btn-color: var(--color-white);
+  --btn-border: var(--color-primary-dark);
+  outline: none;
+  text-decoration: none;
+}
+.woolworths-button.btn-primary:active, .woocommerce ul.products li.product .button:active {
+  transform: translateY(1px);
+}
+.woolworths-button.btn-primary:disabled, .woocommerce ul.products li.product .button:disabled {
+  --btn-bg: var(--color-grey-lighter);
+  --btn-color: var(--color-grey-light);
+  --btn-border: var(--color-grey-lighter);
+  cursor: not-allowed;
+  transform: none;
+}
+.woolworths-button.btn-secondary, .woocommerce ul.products li.product .btn-secondary.button {
+  --btn-bg: var(--color-grey-dark);
+  --btn-color: var(--color-white);
+  --btn-border: transparent;
+}
+.woolworths-button.btn-secondary:hover, .woocommerce ul.products li.product .btn-secondary.button:hover, .woolworths-button.btn-secondary:focus, .woocommerce ul.products li.product .btn-secondary.button:focus {
+  --btn-bg: var(--color-grey-darker);
+  --btn-color: var(--color-white);
+  --btn-border: var(--color-grey-darker);
+  outline: none;
+  text-decoration: none;
+}
+.woolworths-button.btn-secondary:active, .woocommerce ul.products li.product .btn-secondary.button:active {
+  transform: translateY(1px);
+}
+.woolworths-button.btn-secondary:disabled, .woocommerce ul.products li.product .btn-secondary.button:disabled {
+  --btn-bg: var(--color-grey-lighter);
+  --btn-color: var(--color-grey-light);
+  --btn-border: var(--color-grey-lighter);
+  cursor: not-allowed;
+  transform: none;
+}
+.woolworths-button.btn-outline, .woocommerce ul.products li.product .btn-outline.button {
+  --btn-bg: transparent;
+  --btn-color: var(--color-text);
+  --btn-border: var(--color-grey-light);
+}
+.woolworths-button.btn-outline:hover, .woocommerce ul.products li.product .btn-outline.button:hover, .woolworths-button.btn-outline:focus, .woocommerce ul.products li.product .btn-outline.button:focus {
+  --btn-bg: var(--color-primary);
+  --btn-color: var(--color-white);
+  --btn-border: var(--color-primary);
+  outline: none;
+  text-decoration: none;
+}
+.woolworths-button.btn-outline:active, .woocommerce ul.products li.product .btn-outline.button:active {
+  transform: translateY(1px);
+}
+.woolworths-button.btn-outline:disabled, .woocommerce ul.products li.product .btn-outline.button:disabled {
+  --btn-bg: var(--color-grey-lighter);
+  --btn-color: var(--color-grey-light);
+  --btn-border: var(--color-grey-lighter);
+  cursor: not-allowed;
+  transform: none;
+}
+.woolworths-button.btn-ghost, .woocommerce ul.products li.product .btn-ghost.button {
+  --btn-bg: transparent;
+  --btn-color: var(--color-primary);
+  --btn-border: transparent;
+}
+.woolworths-button.btn-ghost:hover, .woocommerce ul.products li.product .btn-ghost.button:hover, .woolworths-button.btn-ghost:focus, .woocommerce ul.products li.product .btn-ghost.button:focus {
+  --btn-bg: var(--color-primary-light);
+  --btn-color: var(--color-primary);
+  --btn-border: var(--color-primary-light);
+  outline: none;
+  text-decoration: none;
+}
+.woolworths-button.btn-ghost:active, .woocommerce ul.products li.product .btn-ghost.button:active {
+  transform: translateY(1px);
+}
+.woolworths-button.btn-ghost:disabled, .woocommerce ul.products li.product .btn-ghost.button:disabled {
+  --btn-bg: var(--color-grey-lighter);
+  --btn-color: var(--color-grey-light);
+  --btn-border: var(--color-grey-lighter);
+  cursor: not-allowed;
+  transform: none;
+}
+.woolworths-button.btn-sm, .woocommerce ul.products li.product .btn-sm.button {
+  --btn-padding: var(--space-small) var(--space-medium);
+  --btn-font-size: 0.75rem;
+}
+.woolworths-button.btn-lg, .woocommerce ul.products li.product .btn-lg.button {
+  --btn-padding: var(--space-large) calc(var(--space-large) * 1.5);
+  --btn-font-size: 1.125rem;
+}
+.woolworths-button.btn-block, .woocommerce ul.products li.product .btn-block.button {
+  --btn-width: 100%;
+}
+
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit {
+  --btn-padding: var(--space-medium) var(--space-large);
+  --btn-radius: var(--border-radius);
+  --btn-font-size: var(--font-size-body);
+  --btn-font-family: var(--font-family-body);
+  --btn-font-weight: var(--font-headline--weight);
+  --btn-line-height: var(--line-height-body);
+  --btn-transform: none;
+  --btn-width: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  --btn-bg: var(--color-primary);
+  --btn-color: var(--color-white);
+  --btn-border: transparent;
+}
+.woocommerce a.button:hover, .woocommerce a.button:focus,
+.woocommerce button.button:hover,
+.woocommerce button.button:focus,
+.woocommerce input.button:hover,
+.woocommerce input.button:focus,
+.woocommerce #respond input#submit:hover,
+.woocommerce #respond input#submit:focus {
+  --btn-bg: var(--color-primary-dark);
+  --btn-color: var(--color-white);
+  --btn-border: var(--color-primary-dark);
+  outline: none;
+  text-decoration: none;
+}
+.woocommerce a.button:active,
+.woocommerce button.button:active,
+.woocommerce input.button:active,
+.woocommerce #respond input#submit:active {
+  transform: translateY(1px);
+}
+.woocommerce a.button:disabled,
+.woocommerce button.button:disabled,
+.woocommerce input.button:disabled,
+.woocommerce #respond input#submit:disabled {
+  --btn-bg: var(--color-grey-lighter);
+  --btn-color: var(--color-grey-light);
+  --btn-border: var(--color-grey-lighter);
+  cursor: not-allowed;
+  transform: none;
+}
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.woocommerce #respond input#submit.alt {
+  --btn-bg: var(--color-primary);
+}
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover,
+.woocommerce #respond input#submit.alt:hover {
+  --btn-bg: var(--color-primary-dark);
+}
+
 .wolheader {
   display: flex;
   align-items: center;
@@ -757,6 +963,53 @@ img {
 @media (min-width: 64rem) {
   .woocommerce ul.products {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+.woocommerce div.product {
+  float: none !important;
+  width: auto !important;
+}
+
+.woocommerce div.product {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  grid-template-areas: "images" "summary" "tabs" "related";
+}
+
+.woocommerce div.product div.images {
+  grid-area: images;
+}
+
+.woocommerce div.product div.summary {
+  grid-area: summary;
+  background: #fff;
+  padding: var(--space-small);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-product-card);
+}
+
+.woocommerce div.product .woocommerce-tabs {
+  grid-area: tabs;
+  background: #fff;
+  padding: var(--space-small);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-product-card);
+}
+
+.woocommerce div.product .related.products {
+  grid-area: related;
+  background: #f7f7f7;
+  padding: var(--space-small);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-product-card);
+}
+
+@media (min-width: 48rem) {
+  .woocommerce div.product {
+    grid-template-columns: 60% 40%;
+    grid-template-areas: "images summary" "tabs tabs" "related related";
+    align-items: start;
   }
 }
 .woocommerce ul.products li.product {
@@ -830,19 +1083,8 @@ img {
   display: none;
 }
 
-.woocommerce ul.products:not(.woo-archive-btn-button) li:where(:not(.woo-archive-btn-button)) .button:not(.kb-button) {
-  position: static;
-  display: inline-block;
-  width: 100%;
-  padding: var(--space-medium) var(--space-large);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-headline--weight);
-  text-align: center;
-  text-decoration: none;
-  border-radius: var(--border-radius);
-  color: var(--fg, var(--color-white));
-  background-color: var(--accent, var(--color-primary));
-  text-transform: initial;
+.woocommerce ul.products li.product .button {
+  --btn-width: 100%;
 }
 
 li.product:hover .product-details,
@@ -858,6 +1100,33 @@ li.product .product-details {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   border-radius: var(--border-radius);
+}
+
+.single-product div.product {
+  align-items: flex-start;
+}
+
+.single-product div.product .images,
+.single-product .woocommerce-product-gallery {
+  min-height: 700px;
+}
+
+/* Make image fill height */
+.single-product .woocommerce-product-gallery img {
+  height: 700px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.woocommerce div.product .summary {
+  /* Reduce width */
+  width: 42%;
+  /* Card look */
+  background: red;
+  padding: 24px;
+  border-radius: 16px;
+  /* Border-like shadow */
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 6px 18px rgba(0, 0, 0, 0.05);
 }
 
 /*# sourceMappingURL=frontend.css.map*/

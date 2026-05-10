@@ -1,0 +1,138 @@
+// Custom Button System
+// Neutralizes Kadence and WooCommerce button styles through a Variable-Injection architecture
+
+// 1. Core Button Base Mixin
+// Defines the variables that the reset.scss is looking for
+@mixin woolworths-btn-base {
+  --btn-padding: var(--space-medium) var(--space-large);
+  --btn-radius: var(--border-radius);
+  --btn-font-size: var(--font-size-body);
+  --btn-font-family: var(--font-family-body);
+  --btn-font-weight: var(--font-headline--weight);
+  --btn-line-height: var(--line-height-body);
+  --btn-transform: none;
+  --btn-width: auto;
+
+  // These properties are handled by reset.scss but we define them here for 
+  // elements that might NOT be caught by the reset selectors
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+// 2. Variant Mixin
+@mixin woolworths-btn-variant($bg, $color, $hover-bg, $hover-color, $border: transparent) {
+  --btn-bg: #{$bg};
+  --btn-color: #{$color};
+  --btn-border: #{$border};
+
+  &:hover, &:focus {
+    --btn-bg: #{$hover-bg};
+    --btn-color: #{$hover-color};
+    --btn-border: #{$hover-bg};
+    outline: none;
+    text-decoration: none;
+  }
+
+  // Active state
+  &:active {
+    transform: translateY(1px);
+  }
+
+  // Disabled state
+  &:disabled {
+    --btn-bg: var(--color-grey-lighter);
+    --btn-color: var(--color-grey-light);
+    --btn-border: var(--color-grey-lighter);
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// 3. Application to Woolworths Custom Class
+.woolworths-button {
+  @include woolworths-btn-base;
+
+  &.btn-primary {
+    @include woolworths-btn-variant(
+      var(--color-primary), 
+      var(--color-white), 
+      var(--color-primary-dark), 
+      var(--color-white)
+    );
+  }
+
+  &.btn-secondary {
+    @include woolworths-btn-variant(
+      var(--color-grey-dark), 
+      var(--color-white), 
+      var(--color-grey-darker), 
+      var(--color-white)
+    );
+  }
+
+  &.btn-outline {
+    @include woolworths-btn-variant(
+      transparent, 
+      var(--color-text), 
+      var(--color-primary), 
+      var(--color-white),
+      var(--color-grey-light)
+    );
+  }
+
+  &.btn-ghost {
+    @include woolworths-btn-variant(
+      transparent, 
+      var(--color-primary), 
+      var(--color-primary-light), 
+      var(--color-primary),
+      transparent
+    );
+  }
+
+  // Size variants
+  &.btn-sm {
+    --btn-padding: var(--space-small) var(--space-medium);
+    --btn-font-size: 0.75rem;
+  }
+
+  &.btn-lg {
+    --btn-padding: var(--space-large) calc(var(--space-large) * 1.5);
+    --btn-font-size: 1.125rem;
+  }
+
+  // Full width utility
+  &.btn-block {
+    --btn-width: 100%;
+  }
+}
+
+// 4. Global WooCommerce Mapping
+.woocommerce {
+  a.button, 
+  button.button, 
+  input.button,
+  #respond input#submit {
+    @include woolworths-btn-base;
+    @include woolworths-btn-variant(
+      var(--color-primary), 
+      var(--color-white), 
+      var(--color-primary-dark), 
+      var(--color-white)
+    );
+    
+    &.alt {
+      --btn-bg: var(--color-primary);
+      &:hover {
+        --btn-bg: var(--color-primary-dark);
+      }
+    }
+  }
+}

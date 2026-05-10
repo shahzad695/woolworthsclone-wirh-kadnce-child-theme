@@ -1,0 +1,32 @@
+.single-product div.product {
+  align-items: flex-start;
+}
+
+.single-product div.product .images,
+.single-product .woocommerce-product-gallery {
+  min-height: 700px;
+}
+
+/* Make image fill height */
+.single-product .woocommerce-product-gallery img {
+  height: 700px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.woocommerce div.product .summary {
+  /* Reduce width */
+  width: 42%;
+
+  /* Card look */
+  background: red;
+
+  padding: 24px;
+
+  border-radius: 16px;
+
+  /* Border-like shadow */
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 6px 18px rgba(0, 0, 0, 0.05);
+}

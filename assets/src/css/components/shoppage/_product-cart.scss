@@ -58,6 +58,11 @@
       grid-row: 4;
       margin-top: 0;
       min-height: 4rem;
+      // &.button {
+      //   @extend .woolworths-button;
+      //   @extend .btn-primary;
+      //   width: 100%;
+      // }
     }
   }
 }
@@ -104,22 +109,10 @@
     display: none;
   }
 }
-.woocommerce
-  ul.products:not(.woo-archive-btn-button)
-  li:where(:not(.woo-archive-btn-button))
-  .button:not(.kb-button) {
-  position: static;
-  display: inline-block;
-  width: 100%;
-  padding: var(--space-medium) var(--space-large);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-headline--weight);
-  text-align: center;
-  text-decoration: none;
-  border-radius: var(--border-radius);
-  color: var(--fg, var(--color-white));
-  background-color: var(--accent, var(--color-primary));
-  text-transform: initial;
+.woocommerce ul.products li.product .button {
+  @extend .woolworths-button;
+  @extend .btn-primary;
+  --btn-width: 100%;
 }
 
 li.product:hover .product-details,
