@@ -1,26 +1,84 @@
 .woocommerce ul.products li.product {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   padding: 1rem;
   background: var(--color-white);
   border-radius: 0.5rem;
   box-shadow: var(--box-shadow-product-card);
+  height: 100%;
+  & a img {
+    // aspect-ratio: 1 / 1;
+    // height: 14rem;
+    // object-fit: cover;
+    // object-position: center center;
+    // overflow: hidden;
+  }
+  & .woocommerce-LoopProduct-link {
+    // aspect-ratio: 1 / 1;
+    // flex-grow: 1;
+  }
   & .entry-content-wrap {
     margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:
+      minmax(1rem, auto) minmax(1rem, auto) minmax(8rem, auto)
+      minmax(4rem, auto);
+    gap: 0.5rem;
+    flex-grow: 1;
+
+    & .price {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-headline-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-grey-darker);
+      margin: 0;
+      min-height: 1.5rem;
+      grid-row: 2;
+    }
+    & .woocommerce-loop-product__title {
+      font-family: var(--font-family-body);
+      font-size: var(--font-headline-sm);
+      font-weight: var(--font-body-weight);
+      color: var(--color-grey-darker);
+      line-height: var(--line-height-body);
+      padding: 1rem 0;
+      min-height: 8rem;
+      grid-row: 3;
+    }
+    & .product__badge-wrap {
+      grid-row: 1;
+      min-height: 2rem;
+      display: flex;
+      align-items: center;
+    }
+    & .product-action-wrap {
+      grid-row: 4;
+      margin-top: 0;
+      min-height: 4rem;
+    }
   }
 }
+// .woocommerce ul.products li.product > img {
+//   flex-basis: 60%;
+// }
+// .woocommerce ul.products li.product > .product-details {
+//   flex-basis: 40%;
+// }
 // .woocommerce ul.products li.product .entry-content-wrap {
 //   margin: 0;
 // }
-.woocommerce-loop-product__title {
-  order: 2;
-}
+// .woocommerce-loop-product__title {
+//   order: 1;
+// }
 .woocommerce
   ul.products.woo-archive-action-on-hover
   li.product
   .product-action-wrap {
   position: static;
-  width: 100%;
+  // width: 100%;
   // display: inline-block;
   padding: 0;
   //   align-items: center;
@@ -29,7 +87,22 @@
   //   transition: opacity 0.3s ease;
   //   background-color: rgba(0, 0, 0, 0.5);
   //   border-radius: 0.5rem;
-  border: 1px solid red;
+  // margin-top: var(--space-large);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-medium);
+  & .product-save-button {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    border: 1px solid var(--color-grey-light);
+  }
+  & .is-saved {
+    background-color: var(--color-grey-lighter);
+    color: var(--color-white);
+  }
+  & .kadence-svg-icon {
+    display: none;
+  }
 }
 .woocommerce
   ul.products:not(.woo-archive-btn-button)
@@ -43,11 +116,47 @@
   font-weight: var(--font-headline--weight);
   text-align: center;
   text-decoration: none;
-  border: 1px solid red;
   border-radius: var(--border-radius);
   color: var(--fg, var(--color-white));
   background-color: var(--accent, var(--color-primary));
+  text-transform: initial;
 }
-// .woocommerce-LoopProduct-link img {
-//   order: 1;
-// }
+
+li.product:hover .product-details,
+li.product .product-details {
+  transform: none !important;
+  transition: none;
+}
+
+// Out of stock and low stock badge
+
+// Badge wrapper (block element)
+
+// Badge base
+.product__badge {
+  display: inline-flex;
+  width: fit-content;
+  // font-family: var(--font-family-heading);
+  // font-size: var(--font-headline-sm);
+  // font-weight: var(--font-headline--weight);
+  // line-height: var(--font-headline-line-height);
+  padding: var(--space-vsmall) var(--space-small);
+  letter-spacing: 0.02em;
+  // font-size: 0.7rem;
+  // font-weight: 600;
+  // line-height: 1;
+  text-transform: uppercase;
+
+  border-radius: var(--border-radius);
+}
+
+// 🔴 Out of stock
+.product__badge--out {
+  // // background-color: #ebf7ff;
+  // --bg: var(--color-grey-lightest);
+}
+
+// 🟡 Low stock
+.product__badge--low {
+  // background-color: #ebf7ff;
+}
