@@ -13,7 +13,7 @@
   --btn-transform: none;
   --btn-width: auto;
 
-  // These properties are handled by reset.scss but we define them here for 
+  // These properties are handled by reset.scss but we define them here for
   // elements that might NOT be caught by the reset selectors
   display: inline-block;
   box-sizing: border-box;
@@ -27,15 +27,22 @@
 }
 
 // 2. Variant Mixin
-@mixin woolworths-btn-variant($bg, $color, $hover-bg, $hover-color, $border: transparent) {
+@mixin woolworths-btn-variant(
+  $bg,
+  $color,
+  $hover-bg,
+  $hover-color,
+  $border: transparent
+) {
   --btn-bg: #{$bg};
   --btn-color: #{$color};
   --btn-border: #{$border};
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     --btn-bg: #{$hover-bg};
     --btn-color: #{$hover-color};
-    --btn-border: #{$hover-bg};
+    --btn-border: #{$border};
     outline: none;
     text-decoration: none;
   }
@@ -61,37 +68,42 @@
 
   &.btn-primary {
     @include woolworths-btn-variant(
-      var(--color-primary), 
-      var(--color-white), 
-      var(--color-primary-dark), 
+      var(--color-primary),
+      var(--color-white),
+      var(--color-primary-dark),
       var(--color-white)
     );
   }
 
   &.btn-secondary {
     @include woolworths-btn-variant(
-      var(--color-grey-dark), 
-      var(--color-white), 
-      var(--color-grey-darker), 
+      var(--color-white),
+      var(--color-text),
+      var(--color-grey-darker),
       var(--color-white)
     );
   }
 
   &.btn-outline {
     @include woolworths-btn-variant(
-      transparent, 
-      var(--color-text), 
-      var(--color-primary), 
-      var(--color-white),
-      var(--color-grey-light)
+      transparent,
+      var(--color-text),
+      var(--color-grey-lightest),
+      var(--color-text),
+      var(--color-grey-darker)
     );
+    &.is-saved {
+      --btn-bg: var(--color-grey-lighter);
+      --btn-color: var(--color-white);
+      --btn-border: var(--color-grey-light);
+    }
   }
 
   &.btn-ghost {
     @include woolworths-btn-variant(
-      transparent, 
-      var(--color-primary), 
-      var(--color-primary-light), 
+      transparent,
+      var(--color-primary),
+      var(--color-primary-light),
       var(--color-primary),
       transparent
     );
@@ -116,18 +128,18 @@
 
 // 4. Global WooCommerce Mapping
 .woocommerce {
-  a.button, 
-  button.button, 
+  a.button,
+  button.button,
   input.button,
   #respond input#submit {
     @include woolworths-btn-base;
     @include woolworths-btn-variant(
-      var(--color-primary), 
-      var(--color-white), 
-      var(--color-primary-dark), 
+      var(--color-primary),
+      var(--color-white),
+      var(--color-primary-dark),
       var(--color-white)
     );
-    
+
     &.alt {
       --btn-bg: var(--color-primary);
       &:hover {

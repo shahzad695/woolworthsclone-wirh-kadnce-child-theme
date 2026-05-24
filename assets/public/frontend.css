@@ -10,7 +10,7 @@
   --color-accent: #ffda00;
   --color-text: #3a474e;
   --color-white: #fff;
-  --color-grey-lightest: #ebf7ff;
+  --color-grey-lightest: #e9e9e9;
   --color-grey-lighter: #9da3a7;
   --color-grey-light: #616c71;
   --color-grey-dark: #283136;
@@ -529,9 +529,13 @@
 .woocommerce-page a.button,
 .woocommerce-page button.button,
 .woocommerce-page input.button,
-.kb-button {
+.kb-button,
+.woolworths-button,
+.woocommerce ul.products li.product .button {
   background-color: var(--btn-bg) !important;
   color: var(--btn-color) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
   border-color: var(--btn-border, transparent) !important;
   padding: var(--btn-padding) !important;
   font-size: var(--btn-font-size) !important;
@@ -736,7 +740,7 @@ section {
 .woolworths-button.btn-primary:hover, .woocommerce ul.products li.product .button:hover, .woolworths-button.btn-primary:focus, .woocommerce ul.products li.product .button:focus {
   --btn-bg: var(--color-primary-dark);
   --btn-color: var(--color-white);
-  --btn-border: var(--color-primary-dark);
+  --btn-border: transparent;
   outline: none;
   text-decoration: none;
 }
@@ -751,14 +755,14 @@ section {
   transform: none;
 }
 .woolworths-button.btn-secondary, .woocommerce ul.products li.product .btn-secondary.button {
-  --btn-bg: var(--color-grey-dark);
-  --btn-color: var(--color-white);
+  --btn-bg: var(--color-white);
+  --btn-color: var(--color-text);
   --btn-border: transparent;
 }
 .woolworths-button.btn-secondary:hover, .woocommerce ul.products li.product .btn-secondary.button:hover, .woolworths-button.btn-secondary:focus, .woocommerce ul.products li.product .btn-secondary.button:focus {
   --btn-bg: var(--color-grey-darker);
   --btn-color: var(--color-white);
-  --btn-border: var(--color-grey-darker);
+  --btn-border: transparent;
   outline: none;
   text-decoration: none;
 }
@@ -775,12 +779,12 @@ section {
 .woolworths-button.btn-outline, .woocommerce ul.products li.product .btn-outline.button {
   --btn-bg: transparent;
   --btn-color: var(--color-text);
-  --btn-border: var(--color-grey-light);
+  --btn-border: var(--color-grey-darker);
 }
 .woolworths-button.btn-outline:hover, .woocommerce ul.products li.product .btn-outline.button:hover, .woolworths-button.btn-outline:focus, .woocommerce ul.products li.product .btn-outline.button:focus {
-  --btn-bg: var(--color-primary);
-  --btn-color: var(--color-white);
-  --btn-border: var(--color-primary);
+  --btn-bg: var(--color-grey-lightest);
+  --btn-color: var(--color-text);
+  --btn-border: var(--color-grey-darker);
   outline: none;
   text-decoration: none;
 }
@@ -794,6 +798,11 @@ section {
   cursor: not-allowed;
   transform: none;
 }
+.woolworths-button.btn-outline.is-saved, .woocommerce ul.products li.product .btn-outline.is-saved.button {
+  --btn-bg: var(--color-grey-lighter);
+  --btn-color: var(--color-white);
+  --btn-border: var(--color-grey-light);
+}
 .woolworths-button.btn-ghost, .woocommerce ul.products li.product .btn-ghost.button {
   --btn-bg: transparent;
   --btn-color: var(--color-primary);
@@ -802,7 +811,7 @@ section {
 .woolworths-button.btn-ghost:hover, .woocommerce ul.products li.product .btn-ghost.button:hover, .woolworths-button.btn-ghost:focus, .woocommerce ul.products li.product .btn-ghost.button:focus {
   --btn-bg: var(--color-primary-light);
   --btn-color: var(--color-primary);
-  --btn-border: var(--color-primary-light);
+  --btn-border: transparent;
   outline: none;
   text-decoration: none;
 }
@@ -862,7 +871,7 @@ section {
 .woocommerce #respond input#submit:focus {
   --btn-bg: var(--color-primary-dark);
   --btn-color: var(--color-white);
-  --btn-border: var(--color-primary-dark);
+  --btn-border: transparent;
   outline: none;
   text-decoration: none;
 }

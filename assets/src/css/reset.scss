@@ -13,9 +13,12 @@
 .woocommerce-page a.button,
 .woocommerce-page button.button,
 .woocommerce-page input.button,
-.kb-button {
+.kb-button,
+.woolworths-button {
   background-color: var(--btn-bg) !important;
   color: var(--btn-color) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
   border-color: var(--btn-border, transparent) !important;
   padding: var(--btn-padding) !important;
   font-size: var(--btn-font-size) !important;
