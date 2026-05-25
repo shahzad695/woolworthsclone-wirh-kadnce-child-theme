@@ -10,7 +10,7 @@
 }
 .woocommerce div.product {
   display: grid;
-  gap: 24px;
+  gap: var(--space-large);
 
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -22,13 +22,17 @@
 
 .woocommerce div.product div.images {
   grid-area: images;
+  float: none !important;
+  width: auto !important;
 }
 
 .woocommerce div.product div.summary {
   grid-area: summary;
+  float: none;
+  width: auto;
 
   background: #fff;
-  padding: var(--space-small);
+  padding: var(--space-medium);
   border-radius: var(--border-radius);
 
   box-shadow: var(--box-shadow-product-card);
@@ -36,9 +40,11 @@
 
 .woocommerce div.product .woocommerce-tabs {
   grid-area: tabs;
+  float: none !important;
+  width: auto !important;
 
   background: #fff;
-  padding: var(--space-small);
+  padding: var(--space-medium);
   border-radius: var(--border-radius);
 
   box-shadow: var(--box-shadow-product-card);
@@ -46,9 +52,11 @@
 
 .woocommerce div.product .related.products {
   grid-area: related;
+  float: none !important;
+  width: auto !important;
 
   background: #f7f7f7;
-  padding: var(--space-small);
+  padding: var(--space-medium);
   border-radius: var(--border-radius);
 
   box-shadow: var(--box-shadow-product-card);
@@ -56,7 +64,7 @@
 
 @media (min-width: 48rem) {
   .woocommerce div.product {
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 70% 40%;
 
     grid-template-areas:
       "images summary"

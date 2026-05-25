@@ -13,7 +13,10 @@ add_filter('woocommerce_loop_add_to_cart_link', function($html){
 /*
 Product Save to list button cutomization
 */
+// add save button inside product actions on product archive page
 add_action('woocommerce_after_shop_loop_item','add_save_button_inside_product_actions', 15);
+// add save button inside product actions on single product page
+add_action('woocommerce_before_add_to_cart_button','add_save_button_inside_product_actions', 25);
 
 function add_save_button_inside_product_actions() {
     global $product;
@@ -46,6 +49,7 @@ function add_save_button_inside_product_actions() {
            ___________________________________________
 */
 add_action( 'woocommerce_after_shop_loop_item_title', 'woolworths_stock_badges', 6 );
+add_action( 'woocommerce_single_product_summary', 'woolworths_stock_badges', 6 );
 
 function woolworths_stock_badges() {
     global $product;
