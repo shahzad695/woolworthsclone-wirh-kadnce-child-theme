@@ -40,7 +40,5 @@ function woolworths_custom_image_badge() {
     // Your image URL (replace this)
     $badge_url = get_stylesheet_directory_uri() . '/assets/src/img/australian-grown.avif';
 
-    echo '<div class="custom-product-badge">
-            <img src="' . esc_url( $badge_url ) . '" alt="Badge">
-          </div>';
+    echo '<div class="custom-product-badge"><img src="' . esc_url( $badge_url ) . '" alt="Badge"></div>';
 }
