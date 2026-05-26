@@ -1,0 +1,74 @@
+/* Remove Kadence WooCommerce UI influence baseline */
+/* We use the exact verbose selectors to neutralize Kadence/Woo */
+/* We use !important here to win the specificity war, but we point to variables */
+/* so our custom system can still control the actual values. */
+
+.woocommerce
+  ul.products:not(.woo-archive-btn-button)
+  li:where(:not(.woo-archive-btn-button))
+  .button:not(.kb-button),
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce-page a.button,
+.woocommerce-page button.button,
+.woocommerce-page input.button,
+.kb-button,
+.woolworths-button {
+  background-color: var(--btn-bg) !important;
+  color: var(--btn-color) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: var(--btn-border, transparent) !important;
+  padding: var(--btn-padding) !important;
+  font-size: var(--btn-font-size) !important;
+  border-radius: var(--btn-radius) !important;
+  text-transform: var(--btn-transform, none) !important;
+  font-family: var(--btn-font-family, inherit) !important;
+  font-weight: var(--btn-font-weight, inherit) !important;
+  line-height: var(--btn-line-height, inherit) !important;
+
+  background-image: none !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  width: var(--btn-width, auto) !important;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+button,
+optgroup,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: inline-block;
+  height: auto;
+}

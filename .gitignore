@@ -1,0 +1,10 @@
+/*
+!.gitignore
+!themes/
+!plugins/
+
+themes/*
+!themes/kadence-child/
+
+plugins/*
+!plugins/woolworths-core/

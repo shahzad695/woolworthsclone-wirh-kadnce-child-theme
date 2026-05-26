@@ -1,0 +1,71 @@
+.single-product div.product {
+  align-items: flex-start;
+}
+
+// .single-product div.product .images,
+.single-product .woocommerce-product-gallery {
+  min-height: 32rem;
+}
+
+/* Make image fill height */
+.woocommerce div.product div.images img {
+  height: 32rem;
+  object-fit: contain;
+  width: 100%;
+}
+
+.woocommerce div.product div.summary {
+  /* Reduce width */
+  width: 72%;
+  margin: 0;
+
+  /* Card look */
+  // background: red;
+  justify-self: end;
+  align-self: start;
+}
+
+.woocommerce div.product .product_title {
+  font-size: var(--font-headline-sm);
+  font-weight: var(--font-headline-heavy-weight);
+  // line-height: var(--font-headline-line-height);
+  margin-bottom: var(--space-medium);
+}
+.woocommerce div.product div.summary p {
+  font-size: var(--font-headline-lg);
+  font-weight: var(--font-headline-heavy-weight);
+  margin: 0 0 var(--space-medium) 0;
+}
+.woocommerce div.product form.cart .button,
+.single-product .summary form.cart .btn-outline {
+  float: none;
+  height: auto;
+  vertical-align: top;
+  flex: 1;
+  width: 100%;
+}
+
+.single-product .summary form.cart {
+  display: flex;
+  width: 100%;
+  gap: var(--space-vsmall);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.woocommerce ul.products li.product,
+.single-product .woocommerce-product-gallery {
+  position: relative;
+}
+.custom-product-badge {
+  position: absolute;
+  top: 10px;
+  right: 450px;
+  z-index: 20;
+}
+
+.custom-product-badge img {
+  width: 80px;
+  height: auto;
+  display: block;
+}
