@@ -1130,7 +1130,7 @@ li.product .product-details {
 
 /* Make image fill height */
 .woocommerce div.product div.images img {
-  height: 32rem;
+  height: 33rem;
   object-fit: contain;
   width: 100%;
 }
@@ -1171,6 +1171,24 @@ li.product .product-details {
   gap: var(--space-vsmall);
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.woocommerce ul.products li.product,
+.single-product .woocommerce-product-gallery {
+  position: relative;
+}
+
+.custom-product-badge {
+  position: absolute;
+  top: 10px;
+  right: 450px;
+  z-index: 20;
+}
+
+.custom-product-badge img {
+  width: 80px;
+  height: auto;
+  display: block;
 }
 
 /*# sourceMappingURL=frontend.css.map*/

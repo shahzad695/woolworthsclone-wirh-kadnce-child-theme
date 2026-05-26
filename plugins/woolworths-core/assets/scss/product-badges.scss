@@ -1,0 +1,98 @@
+$badge-radius: 0.25rem;
+$badge-gap: 0.4rem;
+$badge-font-size: 0.75rem;
+$badge-text-padding: 0.25rem 0.5rem;
+$badge-colors: (
+  default: rgba(0, 0, 0, 0.75),
+  out: #d9534f,
+  sale: #f0ad4e,
+  low: #f7b500,
+  new: #5cb85c,
+);
+$badge-text-color: #fff;
+$badge-dark-text-color: #111;
+
+@function badge-color($type) {
+  @return map-get($badge-colors, $type) ?: map-get($badge-colors, default);
+}
+
+.woocommerce-product-gallery,
+.woocommerce-LoopProduct-link,
+.woocommerce-product-gallery__wrapper,
+.woocommerce .product .woocommerce-product-gallery,
+.woocommerce-page .product .woocommerce-product-gallery {
+  position: relative;
+}
+
+.woolworths-badges {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: $badge-gap;
+  z-index: 50;
+  pointer-events: none;
+
+  &--top-left {
+    top: 0.5rem;
+    left: 0.5rem;
+    align-items: flex-start;
+  }
+
+  &--top-right {
+    top: 0.5rem;
+    right: 0.5rem;
+    align-items: flex-end;
+  }
+
+  &--bottom-left {
+    bottom: 0.5rem;
+    left: 0.5rem;
+    align-items: flex-start;
+  }
+
+  &--bottom-right {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    align-items: flex-end;
+  }
+}
+
+.wool-badge-wrap {
+  pointer-events: auto;
+}
+
+.wool-badge-text {
+  display: inline-block;
+  background: badge-color(default);
+  color: $badge-text-color;
+  padding: $badge-text-padding;
+  border-radius: $badge-radius;
+  font-size: $badge-font-size;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.wool-badge-image {
+  display: block;
+  width: 3.2rem;
+  height: auto;
+  max-width: 100%;
+}
+
+.wool-badge--out .wool-badge-text {
+  background: badge-color(out);
+}
+
+.wool-badge--sale .wool-badge-text {
+  background: badge-color(sale);
+  color: $badge-dark-text-color;
+}
+
+.wool-badge--low .wool-badge-text {
+  background: badge-color(low);
+  color: $badge-dark-text-color;
+}
+
+.wool-badge--new .wool-badge-text {
+  background: badge-color(new);
+}

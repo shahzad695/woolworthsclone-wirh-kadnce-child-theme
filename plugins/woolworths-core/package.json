@@ -1,0 +1,13 @@
+{
+  "name": "woolworths-core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build tooling for the Woolworths Core WooCommerce badge plugin.",
+  "scripts": {
+    "build:css": "sass assets/scss:assets/css --no-source-map",
+    "watch:css": "sass --watch assets/scss:assets/css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}
