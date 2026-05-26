@@ -8,3 +8,84 @@ themes/*
 
 plugins/*
 !plugins/woolworths-core/
+
+# WordPress Core Files (Avoid committing WordPress itself)
+wp-admin/
+wp-includes/
+*.log
+debug.log
+
+# WordPress Configuration & Secrets
+wp-config.php
+wp-config-*.php
+.env
+.env.*
+
+# Database backups
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+
+# WordPress Uploads (Optional: Uncomment if you don't want to track media uploads)
+# uploads/
+
+# WordPress Cache & Temporary Files
+advanced-cache.php
+cache/
+backups/
+mu-plugins/
+plugins/**/node_modules/
+themes/**/node_modules/
+themes/**/dist/
+upgrade/
+wp-cache-config.php
+*.log
+debug.log
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Webpack & Build Artifacts
+build/
+*.bundle.js
+*.js.map
+*.css.map
+*.min.js
+*.min.css
+
+# Compiled CSS (if using SASS/LESS)
+*.sass-cache/
+*.scssc
+*.scss-cache
+*.csslint
+*.eslintrc
+*.stylelintrc.json
+
+# Composer dependencies & generated files
+vendor/
+composer.lock
+composer.phar
+
+# Generated theme files
+themes/**/languages/*.pot
+themes/**/languages/*.mo
+themes/**/languages/*.po
+themes/**/sass/
+themes/**/css/
+themes/**/assets/js/*.min.js
+themes/**/assets/css/*.min.css
+
+# Logs & System Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.idea/
+.vscode/
