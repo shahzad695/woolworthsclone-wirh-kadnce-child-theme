@@ -1130,7 +1130,7 @@ li.product .product-details {
 
 /* Make image fill height */
 .woocommerce div.product div.images img {
-  height: 32rem;
+  height: 33rem;
   object-fit: contain;
   width: 100%;
 }
