@@ -13,7 +13,8 @@ $badge-text-color: #fff;
 $badge-dark-text-color: #111;
 
 @function badge-color($type) {
-  @return map-get($badge-colors, $type) ?: map-get($badge-colors, default);
+  $val: map-get($badge-colors, $type);
+  @return if($val, $val, map-get($badge-colors, default));
 }
 
 .woocommerce-product-gallery,
