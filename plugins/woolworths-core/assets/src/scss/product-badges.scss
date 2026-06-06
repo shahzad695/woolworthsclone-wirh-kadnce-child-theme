@@ -1,20 +1,33 @@
-$badge-radius: 0.25rem;
-$badge-gap: 0.4rem;
-$badge-font-size: 0.75rem;
-$badge-text-padding: 0.25rem 0.5rem;
-$badge-colors: (
-  default: rgba(0, 0, 0, 0.75),
-  out: #d9534f,
-  sale: #f0ad4e,
-  low: #f7b500,
-  new: #5cb85c,
-);
-$badge-text-color: #fff;
-$badge-dark-text-color: #111;
+:root {
+  --wool-badge-radius: 0.25rem;
+  --wool-badge-gap: 0.4rem;
+  --wool-badge-font-size: 0.75rem;
+  --wool-badge-text-padding: 0.25rem 0.5rem;
+  --wool-badge-color-default: rgba(0, 0, 0, 0.75);
+  --wool-badge-color-out: #d9534f;
+  --wool-badge-color-sale: #f0ad4e;
+  --wool-badge-color-low: #f7b500;
+  --wool-badge-color-new: #5cb85c;
+  --wool-badge-text-color: #fff;
+  --wool-badge-dark-text-color: #111;
+  --wool-badge-image-width: 3.2rem;
+  --wool-badge-offset: 0.5rem;
+  --wool-badge-z-index: 50;
+}
 
-@function badge-color($type) {
-  $val: map-get($badge-colors, $type);
-  @return if($val, $val, map-get($badge-colors, default));
+$badge-color-tokens: (
+  out: var(--wool-badge-color-out),
+  sale: var(--wool-badge-color-sale),
+  low: var(--wool-badge-color-low),
+  new: var(--wool-badge-color-new),
+);
+
+$badge-dark-text-types: sale, low;
+
+@mixin badge-position($block, $inline, $align) {
+  #{$block}: var(--wool-badge-offset);
+  #{$inline}: var(--wool-badge-offset);
+  align-items: $align;
 }
 
 .woocommerce-product-gallery,
@@ -29,32 +42,24 @@ $badge-dark-text-color: #111;
   position: absolute;
   display: flex;
   flex-direction: column;
-  gap: $badge-gap;
-  z-index: 50;
+  gap: var(--wool-badge-gap);
+  z-index: var(--wool-badge-z-index);
   pointer-events: none;
 
   &--top-left {
-    top: 0.5rem;
-    left: 0.5rem;
-    align-items: flex-start;
+    @include badge-position(top, left, flex-start);
   }
 
   &--top-right {
-    top: 0.5rem;
-    right: 0.5rem;
-    align-items: flex-end;
+    @include badge-position(top, right, flex-end);
   }
 
   &--bottom-left {
-    bottom: 0.5rem;
-    left: 0.5rem;
-    align-items: flex-start;
+    @include badge-position(bottom, left, flex-start);
   }
 
   &--bottom-right {
-    bottom: 0.5rem;
-    right: 0.5rem;
-    align-items: flex-end;
+    @include badge-position(bottom, right, flex-end);
   }
 }
 
@@ -64,36 +69,30 @@ $badge-dark-text-color: #111;
 
 .wool-badge-text {
   display: inline-block;
-  background: badge-color(default);
-  color: $badge-text-color;
-  padding: $badge-text-padding;
-  border-radius: $badge-radius;
-  font-size: $badge-font-size;
+  background: var(--wool-badge-color-default);
+  color: var(--wool-badge-text-color);
+  padding: var(--wool-badge-text-padding);
+  border-radius: var(--wool-badge-radius);
+  font-size: var(--wool-badge-font-size);
   line-height: 1;
   white-space: nowrap;
 }
 
 .wool-badge-image {
   display: block;
-  width: 3.2rem;
+  width: var(--wool-badge-image-width);
   height: auto;
   max-width: 100%;
 }
 
-.wool-badge--out .wool-badge-text {
-  background: badge-color(out);
+@each $type, $color-token in $badge-color-tokens {
+  .wool-badge--#{$type} .wool-badge-text {
+    background: $color-token;
+  }
 }
 
-.wool-badge--sale .wool-badge-text {
-  background: badge-color(sale);
-  color: $badge-dark-text-color;
-}
-
-.wool-badge--low .wool-badge-text {
-  background: badge-color(low);
-  color: $badge-dark-text-color;
-}
-
-.wool-badge--new .wool-badge-text {
-  background: badge-color(new);
+@each $type in $badge-dark-text-types {
+  .wool-badge--#{$type} .wool-badge-text {
+    color: var(--wool-badge-dark-text-color);
+  }
 }

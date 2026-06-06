@@ -18,6 +18,22 @@ class ProductBadge {
     public function __construct() {
         add_filter( 'woocommerce_get_product_thumbnail', [ $this, 'inject_badges_into_thumbnail' ], 20, 2 );
         add_filter( 'woocommerce_single_product_image_thumbnail_html', [ $this, 'inject_badges_into_single_image' ], 20, 2 );
+        add_filter( 'woocommerce_get_price_html', [ $this, 'maybe_hide_price_out_of_stock' ], 10, 2 );
+    }
+
+    /**
+     * Hide price for out of stock products.
+     */
+    public function maybe_hide_price_out_of_stock( $price, $product ) {
+        if ( ! $product instanceof WC_Product ) {
+            return $price;
+        }
+
+        if ( ! $product->is_in_stock() ) {
+            return '';
+        }
+
+        return $price;
     }
 
     public function inject_badges_into_thumbnail( $html, $post_id = null ) {

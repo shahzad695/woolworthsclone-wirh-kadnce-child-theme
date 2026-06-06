@@ -1,10 +1,10 @@
 .woocommerce ul.products li.product {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem;
+  gap: var(--space-small);
+  padding: var(--space-large);
   background: var(--color-white);
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-product-card);
   height: 100%;
   & a img {
@@ -110,8 +110,13 @@
   }
 }
 .woocommerce ul.products li.product .button {
-  @extend .woolworths-button;
-  @extend .btn-primary;
+  @include woolworths-btn-base;
+  @include woolworths-btn-variant(
+    var(--color-primary),
+    var(--color-white),
+    var(--color-primary-dark),
+    var(--color-white)
+  );
   --btn-width: 100%;
 }
 

@@ -1,24 +1,38 @@
 <?php
 /**
- * Kadence Child Theme functions
+ * Unified asset loading for the Woolworths clone project.
  */
 
- function kadence_child_theme_styles_enqueue() {
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
-    // Child theme stylesheet
+function woolworths_enqueue_assets() {
+    // Child theme styles (compiled)
     wp_enqueue_style(
-        'kadence-child', get_stylesheet_directory_uri() . '/assets/public/frontend.css',[ ],wp_get_theme()->get('Version'));
-     wp_enqueue_script(
-        'woolworth-save-products', get_stylesheet_directory_uri() . '/assets/public/frontend.js', [], null, true);
+        'woolworths-style',
+        get_stylesheet_directory_uri() . '/assets/public/frontend.css',
+        [],
+        wp_get_theme()->get( 'Version' )
+    );
 
+    // Child theme scripts (compiled)
+    wp_enqueue_script(
+        'woolworths-script',
+        get_stylesheet_directory_uri() . '/assets/public/frontend.js',
+        ['jquery'],
+        null,
+        true
+    );
+
+    // Localize data for AJAX and other frontend needs
     wp_localize_script(
-        'woolworth-save-products',
-        'woolworthSave',
+        'woolworths-script',
+        'woolworthsData',
         [
             'ajaxUrl' => admin_url( 'admin-ajax.php' ),
             'nonce'   => wp_create_nonce( 'save_to_list_nonce' ),
         ]
     );
-
 }
-add_action( 'wp_enqueue_scripts', 'kadence_child_theme_styles_enqueue', 30 );
+add_action( 'wp_enqueue_scripts', 'woolworths_enqueue_assets', 30 );

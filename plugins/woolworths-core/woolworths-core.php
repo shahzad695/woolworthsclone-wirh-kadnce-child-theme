@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Woolworths Core
- * Description: Core plugin for Woolworths badge system (WooCommerce). OOP-only, theme independent.
- * Version: 1.0.0
- * Author: Generated
+ * Description: Core plugin for the Woolworths clone project. Handles business logic, badges, and custom features.
+ * Version: 1.1.0
+ * Author: Shahzad
  * Text Domain: woolworths-core
  */
 
@@ -11,14 +11,19 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'WOOL_CORE_PLUGIN_FILE', __FILE__ );
-define( 'WOOL_CORE_PLUGIN_DIR', plugin_dir_path( WOOL_CORE_PLUGIN_FILE ) );
-define( 'WOOL_CORE_PLUGIN_URL', plugin_dir_url( WOOL_CORE_PLUGIN_FILE ) );
-define( 'WOOL_CORE_VERSION', '1.0.0' );
+// Global Constants
+define( 'WOOLWORTHS_CORE_FILE', __FILE__ );
+define( 'WOOLWORTHS_CORE_DIR', plugin_dir_path( WOOLWORTHS_CORE_FILE ) );
+define( 'WOOLWORTHS_CORE_URL', plugin_dir_url( WOOLWORTHS_CORE_FILE ) );
+define( 'WOOLWORTHS_CORE_VERSION', '1.1.0' );
 
-require_once WOOL_CORE_PLUGIN_DIR . 'src/Init.php';
+// Load the main initialization class
+require_once WOOLWORTHS_CORE_DIR . 'src/Init.php';
 
+/**
+ * Initialize the plugin after all plugins are loaded.
+ */
 add_action( 'plugins_loaded', function() {
-    $init = new \WoolworthsCore\Init();
-    $init->run();
+    $woolworths_core = new \WoolworthsCore\Init();
+    $woolworths_core->run();
 } );
